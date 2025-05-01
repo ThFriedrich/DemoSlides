@@ -1,0 +1,206 @@
+/* Root variables for consistent styling */
+:root {
+    --background-color: var(--r-background-color, #e4e2e2);
+    --main-font: var(--r-main-font, Roboto Condensed, sans-serif);
+    --main-font-size: var(--r-main-font-size, 32px);
+    --main-color: var(--r-main-color, rgb(68, 68, 68));
+    --block-margin: var(--r-block-margin, 20px);
+    --heading-margin: var(--r-heading-margin, 0 0 20px 0);
+    --heading-font: var(--r-heading-font, Roboto Condensed, Impact, sans-serif);
+    --heading-color: var(--r-heading-color, #0daba1ff);
+    --heading-line-height: var(--r-heading-line-height, 1.2);
+    --heading-letter-spacing: var(--r-heading-letter-spacing, normal);
+    --heading-text-shadow: var(--r-heading-text-shadow, 0px 0px 6px rgba(0, 0, 0, 0.2));
+    --heading-font-weight: var(--r-heading-font-weight, normal);
+    --heading1-text-shadow: var(--r-heading1-text-shadow, 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25), 0 20px 20px rgba(0, 0, 0, 0.15));
+    --heading1-size: var(--r-heading1-size, 2.5em);
+    --heading2-size: var(--r-heading2-size, 2em);
+    --heading3-size: var(--r-heading3-size, 1.55em);
+    --heading4-size: var(--r-heading4-size, 1.2em);
+    --code-font: var(--r-code-font, monospace);
+    --link-color: var(--r-link-color, rgb(13, 171, 161));
+    --link-color-hover: var(--r-link-color-hover, rgb(18, 228, 214));
+}
+
+/* General body styles */
+body {
+    font-family: var(--main-font);
+    font-size: var(--main-font-size);
+    color: var(--main-color);
+    /* background-color: var(--background-color); */
+    margin: 1em;
+    padding: 0;
+    text-align: justify;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin: var(--heading-margin);
+    font-family: var(--heading-font);
+    font-weight: var(--heading-font-weight);
+    line-height: var(--heading-line-height);
+    letter-spacing: var(--heading-letter-spacing);
+    text-shadow: var(--heading-text-shadow);
+    word-wrap: break-word;
+}
+
+h1 {
+    font-size: var(--heading1-size);
+    color: var(--heading-color);
+    text-shadow: var(--heading1-text-shadow);
+}
+
+h2 {
+    font-size: var(--heading2-size);
+    color: var(--heading-color);
+}
+
+h3 {
+    font-size: var(--heading3-size);
+}
+
+h4 {
+    font-size: var(--heading4-size);
+}
+
+/* Paragraphs */
+p {
+    margin: var(--block-margin) 0;
+    line-height: 1.3em;
+    text-align: justify;
+    font-size: .7em;
+    font-family: var(--main-font);
+    color: var(--main-color);
+}
+
+/* Links */
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+}
+
+/* Code */
+code, pre {
+    font-family: var(--code-font);
+}
+
+pre {
+    margin: var(--block-margin) auto;
+    text-align: left;
+    font-size: 0.7em;
+    line-height: 1.3em;
+    word-wrap: break-word;
+}
+
+/* Lists */
+ul, ol {
+    margin: var(--block-margin) 0;
+    padding-left: 40px;
+    font-size: 0.7em;
+    line-height: 1.3em;
+    font-family: var(--main-font);
+}
+
+ul {
+    list-style-type: disc;
+}
+
+ul ul {
+    list-style-type: square;
+}
+
+ul ul ul {
+    list-style-type: circle;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+/* Tables */
+table {
+    margin: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+table th, table td {
+    padding: 0.2em 0.5em;
+    border-bottom: 2px solid;
+}
+
+table th {
+    font-weight: bold;
+    border-bottom: 4px solid;
+}
+
+/* Blockquotes */
+blockquote {
+    margin: var(--block-margin) auto;
+    padding: 5px;
+    font-family: Roboto, serif;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.1);
+}
+
+#dynamicFrame {
+    /* Swap for your desired aspect ratio */
+    aspect-ratio: 16/9;
+    width: 60%;
+    height: auto;
+    margin: 0 auto; /* Centers the element horizontally */
+    display: block; /* Ensures the margin auto works */
+}
+
+#dynamicFrame11 {
+    /* Swap for your desired aspect ratio */
+    aspect-ratio: 1.0;
+    width: 100%;
+    height: auto;
+    margin: 0 auto; /* Centers the element horizontally */
+    display: block; /* Ensures the margin auto works */
+}
+
+#menuBar {
+    display: flex;
+    justify-content: center;
+    background-color: #0daba1;
+    padding: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  #menuBar button {
+    background-color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 10px;
+    font-size: .5em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+
+  #menuBar button:hover {
+    background-color: #18e4d6;
+  }
+
+  /* Content sections */
+  .content-section {
+    display: none;
+    margin-top: 30px; /* To account for the fixed menu bar */
+  }
+
+  .content-section.active {
+    display: block;
+  }

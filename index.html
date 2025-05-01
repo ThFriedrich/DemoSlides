@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T_Friedrich</title>
+    <link rel="stylesheet" href="css/webpage.css">
+    <script type="text/javascript" src="plugin\chemDoodle\ChemDoodleWeb.js"></script>
+</head>
+
+<body>
+    <!-- Menu Bar -->
+    <div id="menuBar">
+        <button onclick="showSection('intro')">Introduction</button>
+        <button onclick="showSection('tools')">Werkzeuge</button>
+        <button onclick="showSection('lehrprobe')">Lehrprobe EAH</button>
+
+    </div>
+
+    <!-- Content Sections -->
+    <div id="intro" class="content-section active">
+        <h2>Intro</h2>
+        <h4>Vorstellung</h4>
+        <p> In diesen Slides präsentiere ich kurz meine Interessen, Kompetentzbereiche, mein akademisches Profil und
+            Forschungsaktivitäten. Diese Slides benutze ich um mich bei neuen Studierenden vorzustellen. Alle Slides
+            sind mit <a href="https://revealjs.com/">revealjs</a> erstellt, wodurch sie vollständig auf web-technologien
+            basieren und in jedem Browser verwendet werden können, sowohl lokal als auch online. Die wichtigsten
+            Funktionen dieses Präsentationsformates kann man in der Demo ausprobieren.</p>
+        <iframe id="dynamicFrame" src="./Talk_Intro.html" title="Vorstellung">
+            <p>Ihr Browser unterstützt keine iframes.</p>
+        </iframe>
+        <h4>Revealjs-Demo</h4>
+        <iframe id="dynamicFrame" src="https://revealjs.com/?demo" title="Revealjs-Demo">
+            <p>Ihr Browser unterstützt keine iframes.</p>
+        </iframe>
+    </div>
+
+    <div id="lehrprobe" class="content-section">
+        <h2>Lehrprobe Januar 2025</h2>
+        <p>Diese Slides sind Teil der Lehrprobe meiner Bewerbung zur Professur "Physikalische Werkstoffcharakterisierung
+            und Materialinformatik", die aus 2 Teilen bestand:
+        <ul>
+            <li>Lehrprobe: Vorlesung zum Thema "Quantitative Phasenanalyse"</li>
+            <li>Forschungaktivitäten: Vortrag zu eigenen Forschungsthemen (englisch)</li>
+        </ul>
+        </p>
+        <h4>Forschungaktivitäten</h4>
+        <p>In diesen Folien gebe ich einen kurzen Einblick in bisherige Forschungsaktivitäten, die hauptsächlich während
+            meiner Promotionszeit in Antwerpen entstanden sind.</p>
+        <iframe id="dynamicFrame" src="./Talk_Research.html" title="Vortrag zu eigenen Forschungsthemen">
+            <p>Ihr Browser unterstützt keine iframes.</p>
+        </iframe>
+        <h4>Lehrprobe</h4>
+        <p>Diese Slides sind Teil der Lehrprobe meiner Bewerbung zur Professur "Physikalische Werkstoffcharakterisierung
+            und Materialinformatik". Sie beinhalten diverse interaktive Elemente, wie atomare Strukturen, die in 3D
+            rotiert und gezoomt werden können, ein XRD-Animationstool oder interaktive Plots.</p>
+        <iframe id="dynamicFrame" src="./VL_QPA.html" title="Lehrprobe Quantitative Phasenanalyse">
+            <p>Ihr Browser unterstützt keine iframes.</p>
+        </iframe>
+    </div>
+
+    <div id="tools" class="content-section">
+        <h2>Didaktische Werkzeuge</h2>
+        <p>In diesem Abschnitt präsentiere ich einige Werkzeuge, die ich in meinen Vorlesungsskripten und didaktischem Zusatzmaterial gern verwende mit entsprechenden Verweisen zu den jeweiligen Tools. Fast alle dieser Methoden haben Anwendung in der Lehrprobe gefunden.</p>
+        <h4>Mathematisch-Technische Animationen</h4>
+        <p>Diese Animationen werden mit
+            <a href="https://github.com/3b1b/manim">Manim</a> erstellt. Diese Art von Animationen sind durch die Arbeit
+            von <a href="https://de.wikipedia.org/wiki/3Blue1Brown">Grant Sanderson</a> , populär geworden, der das
+            Python Package für seinen <a href="https://www.3blue1brown.com/">YouTube-Kanal</a> erstellt hat. Diese
+            Animationen sind sehr hilfreich, um komplexe mathematische Konzepte zu visualisieren und zu erklären. Im
+            folgenden Beispiel habe ich konstruktive Interferenz illustriert um die Bragg-Gleichung zu erklären.</p>
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; min-width: 300px; ">
+            <video onloadstart="this.playbackRate=1.0;" controls="true" data-autoplay
+                src=" imgs/Illustrate_Braggs_Law_VP9.webm " style=" width: 60%; height: auto; display: block; max-height: 600px; "></video> 
+            </div>
+
+        <h4>Visualisierungen atomarer Strukturen und Prozesse</h4>
+        <h5>Molekulardynamik + OVITO</h5>
+        <p>Atomare Prozesse lassen sich mittels Molekulardynamik (MD) simulieren und als Videos darstellen. Diese Visualisierungen sind mit <a href="https://www.ovito.org/">OVITO</a> erstellt worden. Eigene MD-Simulationen werdem mit <a href="https://www.lammps.org/">LAMMPS</a> gerechnet. Hier ist nur eine einfache 2D-Simulation von Diffusion gezeigt, aber das OVITO-Demovideo zeigt die Potentiale dieser Methoden eindrucksvoll auf.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-evenly;">
+            <div style="flex: 1; min-width: 300px; max-width: 45%;">
+                <h6>OVITO-Demo</h6>
+                <iframe src="https://player.vimeo.com/video/883992093?h=f48ff54529" width="100%" height="600" frameborder="0" allow="autoplay; fullscreen" allowfullscreen display="block"></iframe>
+            </div>
+            <div style="flex: 1; min-width: 300px; max-width: 45%;">
+                <h6>Simple 2D-Diffusion</h6>
+                <img src="imgs/VL1/EAH_logo_animation.gif" style="height: 600px; width: 100%; object-fit: contain;">
+            </div>
+        </div>
+        
+        <h5>Interaktive atomare Strukturen</h5>
+        <p>3D-Objekte atomarer/molekularer Strukturen lassen sich direkt in die Vorlesungsskripte einbauen mit <a href="https://www.chemdoodle.com/3d">ChemDoodle</a>. Innerhalb dieser Elemente kann man die Objekte mit der Maus intuitiv drehen und zoomen.</p>
+
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; margin: 5% 10px; min-width: 500px; border: solid 1px #000000; padding: 10px;">
+            <script>
+            // Setup the 3D component for the Ball and Stick model
+            var transformBallAndStick = new ChemDoodle.TransformCanvas3D('viewer1', 500, 500);
+            // Set the representation to 'Ball and Stick'
+            transformBallAndStick.styles.set3DRepresentation('Ball and Stick');
+            // Set the background color and perspective
+            transformBallAndStick.styles.backgroundColor = 'transparent';
+            transformBallAndStick.styles.projectionPerspective_3D = false;
+            // CIF file content as a string (This is just an example, use your own CIF data here)
+            var Anatas_cifFile = `#------------------------------------------------------------------------------\n#$Date: 2016-03-26 17:23:40 +0200 (Sat, 26 Mar 2016) $\n#$Revision: 180391 $\n#$URL: file:///home/coder/svn-repositories/cod/cif/7/20/60/7206075.cif $\n#------------------------------------------------------------------------------\n#\n# This file is available in the Crystallography Open Database (COD),\n# http://www.crystallography.net/\n#\n# All data on this site have been placed in the public domain by the\n# contributors.\n#\ndata_7206075\nloop_\n_publ_author_name\n\'Rezaee, Masih\'\n\'Mousavi Khoie, Seyyed Mohammad\'\n\'Liu, Kun Hua\'\n_publ_section_title\n;\n The role of brookite in mechanical activation of anatase-to-rutile\n transformation of nanocrystalline TiO2: An XRD and Raman spectroscopy\n investigation\n;\n_journal_issue                   16\n_journal_name_full               CrystEngComm\n_journal_page_first              5055\n_journal_paper_doi               10.1039/c1ce05185g\n_journal_volume                  13\n_journal_year                    2011\n_chemical_formula_structural     \'Ti O2\'\n_chemical_formula_sum            \'O2 Ti\'\n_chemical_name_mineral           Anatase\n_chemical_name_systematic        \'Titanium oxide\'\n_space_group_IT_number           141\n_symmetry_cell_setting           tetragonal\n_symmetry_Int_Tables_number      141\n_symmetry_space_group_name_Hall  \'I 4bw 2bw -1bw\'\n_symmetry_space_group_name_H-M   \'I 41/a m d :1\'\n_audit_update_record\n;\n2011-02-06 # Formatted by publCIF\n;\n_cell_angle_alpha                90\n_cell_angle_beta                 90\n_cell_angle_gamma                90\n_cell_formula_units_Z            4\n_cell_length_a                   3.7850\n_cell_length_b                   3.7850\n_cell_length_c                   9.5196\n_cell_measurement_temperature    298\n_cell_volume                     136.380\n_computing_cell_refinement       MAUD\n_computing_data_collection       X\'Pert\n_computing_data_reduction        MAUD\n_computing_publication_material  publCIF\n_computing_structure_refinement  MAUD\n_computing_structure_solution    MAUD\n_diffrn_measurement_device_type  \'GBC MMA X-ray diffractometer\'\n_diffrn_radiation_source         \'Cu K\a\'\n_diffrn_radiation_type           \'Cu K\a\'\n_diffrn_radiation_wavelength     1.541874\n_diffrn_reflns_theta_max         50\n_cod_data_source_file            400a_anatase_.txt\n_cod_data_source_block           11A\n_cod_original_sg_symbol_H-M      \'I 41/a m d S\'\n_cod_database_code               7206075\nloop_\n_symmetry_equiv_pos_as_xyz\nx,y,z\n-x,-y,z\nx,1/2+y,1/4-z\n-x,1/2-y,1/4-z\n-x,y,z\nx,-y,z\n-x,1/2+y,1/4-z\nx,1/2-y,1/4-z\ny,x,-z\n-y,-x,-z\ny,1/2+x,1/4+z\n-y,1/2-x,1/4+z\n-y,x,-z\ny,-x,-z\n-y,1/2+x,1/4+z\ny,1/2-x,1/4+z\n1/2+x,1/2+y,1/2+z\n1/2-x,1/2-y,1/2+z\n1/2+x,y,3/4-z\n1/2-x,-y,3/4-z\n1/2-x,1/2+y,1/2+z\n1/2+x,1/2-y,1/2+z\n1/2-x,y,3/4-z\n1/2+x,-y,3/4-z\n1/2+y,1/2+x,1/2-z\n1/2-y,1/2-x,1/2-z\n1/2+y,x,3/4+z\n1/2-y,-x,3/4+z\n1/2-y,1/2+x,1/2-z\n1/2+y,1/2-x,1/2-z\n1/2-y,x,3/4+z\n1/2+y,-x,3/4+z\nloop_\n_atom_site_label\n_atom_site_type_symbol\n_atom_site_symmetry_multiplicity\n_atom_site_Wyckoff_symbol\n_atom_site_fract_x\n_atom_site_fract_y\n_atom_site_fract_z\n_atom_site_occupancy\n_atom_site_attached_hydrogens\n_atom_site_calc_flag\nTi1 Ti4+ 4 a 0. 0. 0. 1. 0 d\nO1 O2- 8 e 0. 0. 0.21017 1. 0 d\nloop_\n_atom_type_symbol\n_atom_type_oxidation_number\nTi4+ 4.000\nO2- -2.000`;
+            // Read the CIF data into a supercell (1x2x3 for example)
+            var Anatas_superCell = ChemDoodle.readCIF(Anatas_cifFile, 1, 1, 1);
+            // Load the molecule data into the Ball and Stick representation
+            transformBallAndStick.loadContent([Anatas_superCell.molecule], [Anatas_superCell.unitCell]);
+            </script>
+        </div>
+        
+        <h4>Interaktive 2D- und 3D Datenplots</h4>
+        <p>2D- und 3D-Datenplots lassen sich mit <a href="https://www.plotly.com/javascript/">Plotly</a> in Python erstellen. Diese Plots sind interaktiv und können in die Vorlesungsskripte als html-Elemente eingebaut werden. Somit kann man Daten interaktiv entdecken.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-evenly;">
+            <div style="flex: 1; min-width: 600px; max-width: 90%;">
+                <h6>2D-Plot</h6>
+                <iframe id="dynamicFrame11" src="imgs/TiO_simulationen3.html" 
+                                style=" width:100%; "></iframe>
+            </div>
+            <div style="flex: 1; min-width: 500px; max-width: 90%;">
+                <h6>3D-Plot</h6>
+                <iframe id="dynamicFrame11" src="imgs/VL1/plot_2D.html" 
+                style=" width:100%; "></iframe>
+            </div>
+        </div>  
+    <script>
+        // Function to show the selected section and hide others
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+    </script>
+
+    <script src="plugin/plotly/plotly.min.js "></script>
+    </body> 
+</html>

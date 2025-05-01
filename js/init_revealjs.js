@@ -35,7 +35,7 @@ Reveal.initialize({
     width: 1920,
     preloadIframes: true,
     autoPlayMedia: true,
-    embedded: true,
+    // embedded: true,
     dependencies: [{
         src: 'plugin/external/external.js',
         condition: function() {
