@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Quantitative Phasenanalyse</title>
+
+    <meta name="description" content="Quantitative Phasenanalyse">
+    <meta name="author" content="Thomas Friedrich">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/eah_light.css" id="theme">
+    <link rel="stylesheet" href="dist/theme/fonts/Roboto_Condensed/roboto-condensed.css">
+    <link rel="stylesheet" href="plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="plugin/menu/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme">
+    <link rel="stylesheet" href="plugin\chemDoodle\ChemDoodleWeb.css" type="text/css">
+    <link rel="stylesheet" href="css/reveal-override.css">
+    <script type="text/javascript" src="plugin\chemDoodle\ChemDoodleWeb.js"></script>
+</head>
+
+<body>
+
+    <div class="reveal">
+        <div class="slides">
+
+
+            <!-- Einführung -->
+            <section name="Einführung">
+                <!-- Title Slide -->
+                <section data-background-image="imgs/bkg1.png" data-auto-animate>
+                    <div style=" position: absolute; right:45%;">
+                        <h1>Quantitative Phasenanalyse (QPA)</h1>
+                        <h3>Lehrprobe Dr. Thomas Friedrich</h3>
+                        <br>
+                        <div class=" multicolumn "
+                            style="position:absolute;left: 0.0em; align-items:flex-start;justify-content: space between; ">
+                            <div>
+                                <p>Interaktive Slides:</p>
+                                <img style="height:400px;" src="imgs/qr-code_html.svg">
+                            </div>
+                            <!-- <div>
+                                <p>Slides als pdf:</p>
+                                <img style="height:400px;" src="imgs/qr-code_html.svg">
+                            </div> -->
+                        </div>
+
+                    </div><br>
+                </section>
+                <section data-auto-animate>
+                    <h2>Qualitativ vs. Quantitativ</h2><br>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <div>
+                            <h3>Qualitative Phasenanalyse</h3>
+                            <ul>
+                                <li>Welche Phasen sind in der Probe vorhanden?</li>
+                                <li>Gibt es Fremdphasen/Verunreinigungen?</li>
+                                <li>Welche Phasen sind generell vorhanden?</li>
+                                <li>Ist die Probe kristallin oder amorph?</li>
+                                <li>Sind einzelne Phasen kristallin oder amorph?</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Quantitative Phasenanalyse (QPA)</h3>
+                            <ul>
+                                <li>Welche Phasen sind in welchem Verhältnis vorhanden?</li>
+                                <li>Wie viel Prozent der Probe sind amorph?</li>
+                                <li>Wie viel Prozent der Probe sind Fremdphasen?</li>
+                        </div>
+                    </div>
+                    <div><br>
+                        Typische Anwendungsgebiete von QPA:<br>
+                        <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                            <div><br>
+                                <ul>
+                                    <li>Zement- und Bauindustrie</li>
+                                    <li>Pharmazie</li>
+                                    <li>Metallurgie</li>
+                                </ul>
+                            </div>
+                            <div><br>
+                                <ul>
+                                    <li>Umweltanalytik</li>
+                                    <li>Geologie/Mineralogie</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Warum QPA? - Beispiel TiO<sub>2</sub></h2>
+                    <div class=" multicolumn " style=" align-items: baseline-center;justify-content: space-between; ">
+                        <div style=" width: 48%;">
+                            <img data-src="imgs/TiO_SEM.png ">
+                        </div>
+                        <div style=" width: 48%; font-size: 24px; ">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Eigenschaft</th>
+                                        <th>Anatas</th>
+                                        <th>Rutil</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Chemische Formel</td>
+                                        <td>TiO<sub>2</sub></td>
+                                        <td>TiO<sub>2</sub></td>
+                                    </tr>
+                                    <tr>
+                                        <td style="vertical-align:top">Kristallstruktur</td>
+                                        <td style="vertical-align:top">
+                                            <script>
+                                                // Setup the 3D component for the Ball and Stick model
+                                                var transformBallAndStick = new ChemDoodle.TransformCanvas3D('viewer1', 200, 200);
+                                                // Set the representation to 'Ball and Stick'
+                                                transformBallAndStick.styles.set3DRepresentation('Ball and Stick');
+                                                // Set the background color and perspective
+                                                transformBallAndStick.styles.backgroundColor = 'transparent';
+                                                transformBallAndStick.styles.projectionPerspective_3D = false;
+                                                // CIF file content as a string (This is just an example, use your own CIF data here)
+                                                var Anatas_cifFile = `#------------------------------------------------------------------------------\n#$Date: 2016-03-26 17:23:40 +0200 (Sat, 26 Mar 2016) $\n#$Revision: 180391 $\n#$URL: file:///home/coder/svn-repositories/cod/cif/7/20/60/7206075.cif $\n#------------------------------------------------------------------------------\n#\n# This file is available in the Crystallography Open Database (COD),\n# http://www.crystallography.net/\n#\n# All data on this site have been placed in the public domain by the\n# contributors.\n#\ndata_7206075\nloop_\n_publ_author_name\n\'Rezaee, Masih\'\n\'Mousavi Khoie, Seyyed Mohammad\'\n\'Liu, Kun Hua\'\n_publ_section_title\n;\n The role of brookite in mechanical activation of anatase-to-rutile\n transformation of nanocrystalline TiO2: An XRD and Raman spectroscopy\n investigation\n;\n_journal_issue                   16\n_journal_name_full               CrystEngComm\n_journal_page_first              5055\n_journal_paper_doi               10.1039/c1ce05185g\n_journal_volume                  13\n_journal_year                    2011\n_chemical_formula_structural     \'Ti O2\'\n_chemical_formula_sum            \'O2 Ti\'\n_chemical_name_mineral           Anatase\n_chemical_name_systematic        \'Titanium oxide\'\n_space_group_IT_number           141\n_symmetry_cell_setting           tetragonal\n_symmetry_Int_Tables_number      141\n_symmetry_space_group_name_Hall  \'I 4bw 2bw -1bw\'\n_symmetry_space_group_name_H-M   \'I 41/a m d :1\'\n_audit_update_record\n;\n2011-02-06 # Formatted by publCIF\n;\n_cell_angle_alpha                90\n_cell_angle_beta                 90\n_cell_angle_gamma                90\n_cell_formula_units_Z            4\n_cell_length_a                   3.7850\n_cell_length_b                   3.7850\n_cell_length_c                   9.5196\n_cell_measurement_temperature    298\n_cell_volume                     136.380\n_computing_cell_refinement       MAUD\n_computing_data_collection       X\'Pert\n_computing_data_reduction        MAUD\n_computing_publication_material  publCIF\n_computing_structure_refinement  MAUD\n_computing_structure_solution    MAUD\n_diffrn_measurement_device_type  \'GBC MMA X-ray diffractometer\'\n_diffrn_radiation_source         \'Cu K\a\'\n_diffrn_radiation_type           \'Cu K\a\'\n_diffrn_radiation_wavelength     1.541874\n_diffrn_reflns_theta_max         50\n_cod_data_source_file            400a_anatase_.txt\n_cod_data_source_block           11A\n_cod_original_sg_symbol_H-M      \'I 41/a m d S\'\n_cod_database_code               7206075\nloop_\n_symmetry_equiv_pos_as_xyz\nx,y,z\n-x,-y,z\nx,1/2+y,1/4-z\n-x,1/2-y,1/4-z\n-x,y,z\nx,-y,z\n-x,1/2+y,1/4-z\nx,1/2-y,1/4-z\ny,x,-z\n-y,-x,-z\ny,1/2+x,1/4+z\n-y,1/2-x,1/4+z\n-y,x,-z\ny,-x,-z\n-y,1/2+x,1/4+z\ny,1/2-x,1/4+z\n1/2+x,1/2+y,1/2+z\n1/2-x,1/2-y,1/2+z\n1/2+x,y,3/4-z\n1/2-x,-y,3/4-z\n1/2-x,1/2+y,1/2+z\n1/2+x,1/2-y,1/2+z\n1/2-x,y,3/4-z\n1/2+x,-y,3/4-z\n1/2+y,1/2+x,1/2-z\n1/2-y,1/2-x,1/2-z\n1/2+y,x,3/4+z\n1/2-y,-x,3/4+z\n1/2-y,1/2+x,1/2-z\n1/2+y,1/2-x,1/2-z\n1/2-y,x,3/4+z\n1/2+y,-x,3/4+z\nloop_\n_atom_site_label\n_atom_site_type_symbol\n_atom_site_symmetry_multiplicity\n_atom_site_Wyckoff_symbol\n_atom_site_fract_x\n_atom_site_fract_y\n_atom_site_fract_z\n_atom_site_occupancy\n_atom_site_attached_hydrogens\n_atom_site_calc_flag\nTi1 Ti4+ 4 a 0. 0. 0. 1. 0 d\nO1 O2- 8 e 0. 0. 0.21017 1. 0 d\nloop_\n_atom_type_symbol\n_atom_type_oxidation_number\nTi4+ 4.000\nO2- -2.000`;
+                                                // Read the CIF data into a supercell (1x2x3 for example)
+                                                var Anatas_superCell = ChemDoodle.readCIF(Anatas_cifFile, 1, 1, 1);
+                                                // Load the molecule data into the Ball and Stick representation
+                                                transformBallAndStick.loadContent([Anatas_superCell.molecule], [Anatas_superCell.unitCell]);
+                                            </script>
+                                        </td>
+
+                                        <td style="vertical-align:top">
+                                            <script>
+                                                // Setup the 3D component for the Ball and Stick model
+                                                var transformBallAndStick2 = new ChemDoodle.TransformCanvas3D('viewer2', 200, 200);
+                                                // Set the representation to 'Ball and Stick'
+                                                transformBallAndStick2.styles.set3DRepresentation('Ball and Stick');
+                                                // Set the background color and perspective
+                                                transformBallAndStick2.styles.backgroundColor = 'transparent';
+                                                transformBallAndStick2.styles.projectionPerspective_3D = false;
+                                                // CIF file content as a string (This is just an example, use your own CIF data here)
+                                                var Rutil_cifFile = `#------------------------------------------------------------------------------\n#$Date: 2024-05-23 12:45:01 +0300 (Thu, 23 May 2024) $\n#$Revision: 292002 $\n#$URL: file:///home/coder/svn-repositories/cod/cif/9/01/56/9015662.cif $\n#------------------------------------------------------------------------------\n#\n# This file is available in the Crystallography Open Database (COD),\n# http://www.crystallography.net/. The original data for this entry\n# were provided the American Mineralogist Crystal Structure Database,\n# http://rruff.geo.arizona.edu/AMS/amcsd.php\n#\n# The file may be used within the scientific community so long as\n# proper attribution is given to the journal article from which the\n# data were obtained.\n#\ndata_9015662\nloop_\n_publ_author_name\n\'Howard, C. J.\'\n\'Sabine, T. M.\'\n\'Dickson, F.\'\n_publ_section_title\n;\n Structural and thermal parameters for rutile and anatase\n;\n_journal_issue                   4\n_journal_name_full               \'Acta Crystallographica, Section B\'\n_journal_page_first              462\n_journal_page_last               468\n_journal_paper_doi               10.1107/S010876819100335X\n_journal_volume                  47\n_journal_year                    1991\n_chemical_compound_source        Synthetic\n_chemical_formula_sum            \'O2 Ti\'\n_chemical_name_mineral           Rutile\n_space_group_IT_number           136\n_symmetry_space_group_name_Hall  \'-P 4n 2n\'\n_symmetry_space_group_name_H-M   \'P 42/m n m\'\n_cell_angle_alpha                90\n_cell_angle_beta                 90\n_cell_angle_gamma                90\n_cell_length_a                   4.5937\n_cell_length_b                   4.5937\n_cell_length_c                   2.9587\n_cell_formula_units_Z            2\n_cell_volume                     62.435\n_database_code_amcsd             0019092\n_exptl_crystal_density_diffrn    4.249\n_cod_original_formula_sum        \'Ti O2\'\n_cod_database_code               9015662\nloop_\n_space_group_symop_operation_xyz\nx,y,z\n-y,-x,z\ny,x,-z\n1/2+y,1/2-x,1/2-z\n1/2-y,1/2+x,1/2+z\n1/2+x,1/2-y,1/2+z\n1/2-x,1/2+y,1/2-z\nx,y,-z\n-x,-y,z\ny,x,z\n-y,-x,-z\n1/2-y,1/2+x,1/2-z\n1/2+y,1/2-x,1/2+z\n1/2-x,1/2+y,1/2+z\n1/2+x,1/2-y,1/2-z\n-x,-y,-z\nloop_\n_atom_site_aniso_label\n_atom_site_aniso_U_11\n_atom_site_aniso_U_22\n_atom_site_aniso_U_33\n_atom_site_aniso_U_12\n_atom_site_aniso_U_13\n_atom_site_aniso_U_23\nTi 0.00680 -0.00040 0.00000 0.00680 0.00000 0.00460\nO 0.00520 -0.00200 0.00000 0.00520 0.00000 0.00350\nloop_\n_atom_site_label\n_atom_site_fract_x\n_atom_site_fract_y\n_atom_site_fract_z\nTi 0.00000 0.00000 0.00000\nO 0.30478 0.30478 0.00000\nloop_\n_cod_related_entry_id\n_cod_related_entry_database\n_cod_related_entry_code\n1 AMCSD 0019092`;
+                                                // Read the CIF data into a supercell (1x2x3 for example)
+                                                var Rutil_superCell = ChemDoodle.readCIF(Rutil_cifFile, 1, 1, 1);
+                                                // Load the molecule data into the Ball and Stick representation
+                                                transformBallAndStick2.loadContent([Rutil_superCell.molecule], [Rutil_superCell.unitCell]);
+
+                                            </script>
+                                        </td>
+                                        <!-- <td>Tetragonal (lockere Packung)</td>
+                                        <td>Tetragonal (dichteste Packung)</td> -->
+                                    </tr>
+                                    <tr>
+                                        <td>Dichte</td>
+                                        <td>3,89 g/cm³</td>
+                                        <td>4,25 g/cm³</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Bandabstand</td>
+                                        <td>3,2 eV (höher, besser für Photokatalyse)</td>
+                                        <td>3,0 eV (niedriger, bessere Lichtabsorption)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Thermodynamische Stabilität</td>
+                                        <td>Metastabil (wandelt sich bei \( >600^\circ C \) in Rutil um)</td>
+                                        <td>Thermodynamisch stabilste Phase</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spezifische Oberfläche</td>
+                                        <td>Hoch (vorteilhaft für Reaktionen)</td>
+                                        <td>Gering</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UV-Absorption</td>
+                                        <td>Effektiv, aber auf kürzere Wellenlängen beschränkt</td>
+                                        <td>Effektiv bei längeren UV-Wellen</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anwendungen</td>
+                                        <td>Photokatalyse</td>
+                                        <td>Pigmente, UV-Schutz</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p>Für Photokatalyseanwendungen oft bestimmte Mischverhältnisse vorteilhaft ($\approx$ 80%
+                        Anatas,
+                        20% Rutil)</p>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://doi.org/10.1016/j.cattod.2017.06.010> Jiang, Xiongzhen, et al. "Anatase and
+                        rutile
+                        in evonik aeroxide P25: Heterojunctioned or individual nanoparticles?." Catalysis Today 300
+                        (2018): 12-17.
+                    </a>
+                </section>
+            </section>
+
+            <!-- Wiederholung Basics-->
+            <section name="Wiederholung XRD Basics">
+                <section>
+                    <h2>Messaufbau</h2>
+
+                    <iframe data-src="plugin/XRD_Simulator/XRD Simulator.html" style=" height: 850px; width:1400px; "></iframe><br>
+                    <p style=" font-size:24px;display:inline-block; ">
+                        Original von Andres Vasquez (Microscopy Australia) -
+                        <a style=" font-size:24px;display:inline-block; " target="_blank"
+                            href=https://myscope.training/XRD_simulator.html>
+                            https://myscope.training/XRD_simulator.html
+                        </a>
+                        verfügbar unter
+                        <a style=" font-size:24px;display:inline-block; " target="_blank"
+                            href=https://creativecommons.org/licenses/by/4.0/deed.en>
+                            CC BY 4.0
+                        </a>
+
+                        <!-- <img data-src="imgs/XRD_diffractometer.svg " style=" height: 700px; "><br>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://commons.wikimedia.org/w/index.php?curid=96222184> By DrBoStefanov - Own work,
+                        CC
+                        BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=96222184</a> -->
+                </section>
+                <!-- <section>
+                    <h2>Informationen in einem XRD-Pattern</h2>
+                    <img src="imgs/info.svg " style=" height: 700px; "><br>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://books.google.de/books?hl=en&lr=&id=rGsoDwAAQBAJ&oi=fnd&pg=PP18&dq=Powder+Diffraction:+Theory+and+Practice.+(Royal+Society+of+Chemistry,+Cambridge,+2008&ots=hpRLnczMJO&sig=E2w7_-4I4I2VxGREXtors_Qwn3s>
+                        Dinnebier, Robert E., and Simon JL Billinge, eds. Powder diffraction: theory and practice. Royal
+                        society of chemistry, 2015.
+                    </a>
+                </section> -->
+                <section data-auto-animate>
+                    <h2>Die Bragg-Bedingung</h2>
+                    <div class="r-stack">
+                        <video onloadstart="this.playbackRate=1.0;" controls="true" data-autoplay
+                            src=" imgs/Illustrate_Braggs_Law_VP9.webm " style=" height: 700px;"
+                            class="fragment fade-out" data-fragment-index="0"></video>
+                        <img class="fragment current-visible" data-fragment-index="0"
+                            src="imgs/Illustrate_Braggs_Law0008.png " style=" height: 700px; ">
+                    </div>
+                </section>
+                <section data-auto-animate>
+                    <h2>Die Bragg-Bedingung</h2>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <div name="bragg">
+                            <img data-src="imgs/Illustrate_Braggs_Law0008.png " style=" height: 600px; ">
+                        </div>
+                        <div>
+                            <p>Die Bedingung für konstruktive Interferenz ist:</p>
+                            <p style="font-size: 2em;">$2d sin(\Theta) = n \lambda$</p>
+                            <ul>
+                                <li>$d$: Gitterabstand</li>
+                                <li>$\Theta$: Beugungswinkel</li>
+                                <li>$n$: Ordnung</li>
+                                <li>$\lambda$: Wellenlänge</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <h2>Peakintensität</h2><br>
+                    <div>
+                        $$
+                        I_{(h k l)} =
+                        \underbrace{M_{h k l}}_{\text{Multiplizitätsfaktor}}
+                        \times
+                        \underbrace{\left|F_{(h k l)}\right|^2}_{\text{Strukturfaktor}}
+                        \times
+                        \underbrace{LP(\theta)}_{\substack{\text{Lorentz-Polarisation} \\ \text{Korrekturfaktor}}}
+                        \times
+                        \underbrace{TF(\theta)}_{\substack{\text{Temperaturfaktor} \\ \text{(Debye-Waller-Faktor)}}}
+                        $$
+                    </div><br>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-around; ">
+                        <div>
+                            <script>
+                                // Setup the 3D component for the Ball and Stick model
+                                var transformBallAndStick3 = new ChemDoodle.TransformCanvas3D('viewer3', 550, 550);
+                                // Set the representation to 'Ball and Stick'
+                                transformBallAndStick3.styles.set3DRepresentation('Ball and Stick');
+                                // Set the background color and perspective
+                                transformBallAndStick3.styles.backgroundColor = 'transparent';
+                                transformBallAndStick3.styles.projectionPerspective_3D = false;
+                                //var xyzString = `63\nCa O3 Ti\nCa    0.000000    0.000000    0.000000\nCa    0.000000    0.000000    3.896700\nCa    0.000000    3.896700    0.000000\nCa    0.000000    3.896700    3.896700\nCa    3.896700    0.000000    0.000000\nCa    3.896700    0.000000    3.896700\nCa    3.896700    3.896700    0.000000\nCa    3.896700    3.896700    3.896700\nTi    1.948350    1.948350    1.948350\n O    0.000000    1.948350    1.948350\n O    3.896700    1.948350    1.948350\n O    1.948350    0.000000    1.948350\n O    1.948350    3.896700    1.948350\n O    1.948350    1.948350    0.000000\n O    1.948350    1.948350    3.896700\n O   -1.948350   -1.948350    0.000000\n O   -1.948350   -0.000000   -1.948350\n O   -1.948350    0.000000    1.948350\n O   -1.948350    1.948350    0.000000\n O   -0.000000   -1.948350   -1.948350\n O    0.000000   -1.948350    1.948350\n O    0.000000    1.948350   -1.948350\n O    1.948350   -1.948350    0.000000\n O    1.948350   -0.000000   -1.948350\n O   -1.948350   -1.948350    3.896700\n O   -1.948350    0.000000    5.845050\n O   -1.948350    1.948350    3.896700\n O    0.000000   -1.948350    5.845050\n O    0.000000    1.948350    5.845050\n O    1.948350   -1.948350    3.896700\n O    1.948350    0.000000    5.845050\n O   -1.948350    3.896700   -1.948350\n O   -1.948350    3.896700    1.948350\n O   -1.948350    5.845050    0.000000\n O    0.000000    5.845050   -1.948350\n O    0.000000    5.845050    1.948350\n O    1.948350    3.896700   -1.948350\n O    1.948350    5.845050    0.000000\n O   -1.948350    3.896700    5.845050\n O   -1.948350    5.845050    3.896700\n O    0.000000    5.845050    5.845050\n O    1.948350    3.896700    5.845050\n O    1.948350    5.845050    3.896700\n O    3.896700   -1.948350   -1.948350\n O    3.896700   -1.948350    1.948350\n O    3.896700    1.948350   -1.948350\n O    5.845050   -1.948350    0.000000\n O    5.845050   -0.000000   -1.948350\n O    5.845050    0.000000    1.948350\n O    5.845050    1.948350    0.000000\n O    3.896700   -1.948350    5.845050\n O    3.896700    1.948350    5.845050\n O    5.845050   -1.948350    3.896700\n O    5.845050    0.000000    5.845050\n O    5.845050    1.948350    3.896700\n O    3.896700    5.845050   -1.948350\n O    3.896700    5.845050    1.948350\n O    5.845050    3.896700   -1.948350\n O    5.845050    3.896700    1.948350\n O    5.845050    5.845050    0.000000\n O    3.896700    5.845050    5.845050\n O    5.845050    3.896700    5.845050\n O    5.845050    5.845050    3.896700`;
+                                var xyzString = `15\nCa O3 Ti\nCa    0.000000    0.000000    0.000000\nCa    0.000000    0.000000    3.896700\nCa    0.000000    3.896700    0.000000\nCa    0.000000    3.896700    3.896700\nCa    3.896700    0.000000    0.000000\nCa    3.896700    0.000000    3.896700\nCa    3.896700    3.896700    0.000000\nCa    3.896700    3.896700    3.896700\nTi    1.948350    1.948350    1.948350\nO    0.000000    1.948350    1.948350\nO    3.896700    1.948350    1.948350\nO    1.948350    0.000000    1.948350\nO    1.948350    3.896700    1.948350\nO    1.948350    1.948350    0.000000\nO    1.948350    1.948350    3.896700`;
+                                var molecule = ChemDoodle.readXYZ(xyzString);
+
+                                var cif_TiO = `#------------------------------------------------------------------------------\n#$Date: 2022-08-17 13:18:04 +0300 (Wed, 17 Aug 2022) $\n#$Revision: 277278 $\n#$URL: file:///home/coder/svn-repositories/cod/cif/1/56/74/1567490.cif $\n#------------------------------------------------------------------------------\n#\n# This file is available in the Crystallography Open Database (COD),\n# http://www.crystallography.net/\n#\n# All data on this site have been placed in the public domain by the\n# contributors.\n#\ndata_1567490\nloop_\n_publ_author_name\n\'Ali, R.\'\n\'Yashima, M.\'\n_publ_section_title\n;\n Space group and crystal structure of the perovskite CaTiO3 from 296 to\n 1720 K : tetragonal phase at 1720 K\n;\n_journal_name_full               \'Journal of Solid State Chemistry\'\n_journal_page_first              2867\n_journal_page_last               2872\n_journal_paper_doi               10.1016/j.jssc.2005.06.027\n_journal_volume                  178\n_journal_year                    2005\n_chemical_formula_sum            \'Ca O3 Ti\'\n_chemical_name_common            CaTiO3\n_chemical_name_mineral           \'perovskite at 1720 K\'\n_space_group_IT_number           221\n_space_group_name_Hall           \'-P 4 2 3\'\n_space_group_name_H-M_alt        \'P m -3 m\'\n_cell_angle_alpha                90.000000\n_cell_angle_beta                 90.000000\n_cell_angle_gamma                90.000000\n_cell_formula_units_Z            1\n_cell_length_a                   3.89670(10)\n_cell_length_b                   3.89670(10)\n_cell_length_c                   3.89670(10)\n_cell_volume                     59.169(3)\n_diffrn_ambient_pressure         100\n_diffrn_ambient_temperature      298\n_cod_data_source_file            CaTiO3-cubic.cif\n_cod_data_source_block           CaTiO3-tetragonal\n_cod_original_cell_volume        59.169\n_cod_original_formula_sum        \'Ca Ti O3\'\n_cod_database_code               1567490\nloop_\n_space_group_symop_id\n_space_group_symop_operation_xyz\n1 x,y,z\n2 -x,-y,-z\n3 -x,-y,z\n4 x,y,-z\n5 -x,y,-z\n6 x,-y,z\n7 x,-y,-z\n8 -x,y,z\n9 z,x,y\n10 -z,-x,-y\n11 z,-x,-y\n12 -z,x,y\n13 -z,-x,y\n14 z,x,-y\n15 -z,x,-y\n16 z,-x,y\n17 y,z,x\n18 -y,-z,-x\n19 -y,z,-x\n20 y,-z,x\n21 y,-z,-x\n22 -y,z,x\n23 -y,-z,x\n24 y,z,-x\n25 y,x,-z\n26 -y,-x,z\n27 -y,-x,-z\n28 y,x,z\n29 y,-x,z\n30 -y,x,-z\n31 -y,x,z\n32 y,-x,-z\n33 x,z,-y\n34 -x,-z,y\n35 -x,z,y\n36 x,-z,-y\n37 -x,-z,-y\n38 x,z,y\n39 x,-z,y\n40 -x,z,-y\n41 z,y,-x\n42 -z,-y,x\n43 z,-y,x\n44 -z,y,-x\n45 -z,y,x\n46 z,-y,-x\n47 -z,-y,-x\n48 z,y,x\nloop_\n_atom_site_label\n_atom_site_occupancy\n_atom_site_fract_x\n_atom_site_fract_y\n_atom_site_fract_z\n_atom_site_adp_type\n_atom_site_B_iso_or_equiv\n_atom_site_type_symbol\nCa 1.0 0.000000 0.000000 0.000000 Biso 4.1(1) Ca\nTi 1.0 0.500000 0.500000 0.500000 Biso 1.8(1) Ti\nO 1.0 0.000000 0.500000 0.500000 Biso 5.64 O`;
+                                const TiO_supercell = ChemDoodle.readCIF(cif_TiO, 1, 1, 1);
+
+                                // Load the molecule data into the Ball and Stick representation
+                                transformBallAndStick3.loadContent([molecule], [TiO_supercell.unitCell]);
+
+                            </script>
+                        </div>
+                        <div>
+                            <iframe src="imgs/LorFac.html" data-preload style=" height: 550px; width:700px; "></iframe>
+                        </div>
+                        <div>
+                            <iframe src="imgs/TempFac.html" data-preload style=" height: 550px; width:600px "></iframe>
+                        </div>
+                    </div>
+
+                </section>
+                <section>
+                    <h2>Peakverbreiterung</h2><br>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <div>
+                            <h4>Kristallgröße:</h4>
+                            <p>
+                                $$
+                                \tau = \frac{K \lambda}{\beta \cos(\Theta)}
+                                $$
+                            </p>
+                            <p>
+                                mit:
+                            <ul>
+                                <li>$\tau$: Kristallgröße</li>
+                                <li>$K$: Konstante = 0.9</li>
+                                <li>$\lambda$: Wellenlänge</li>
+                                <li>$\beta$: Linienverbreiterung</li>
+                                <li>$\Theta$: Beugungswinkel</li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div>
+                            <h4>Instrument:</h4><br>
+                            <ul>
+                                <li>Wellenlängenverteilung</li>
+                                <li>Detektorauflösung</li>
+                                <li>Strahldivergenz</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Spannungen und Versetzungen:</h4>
+                            <p>
+                                $$
+                                \varepsilon = \frac{\beta}{2\tan(\Theta)}
+                                $$
+                            </p>
+                            <ul>
+                                <li>$\varepsilon$: Mikrospannung</li>
+                                <li>$\beta$: Linienverbreiterung</li>
+                            </ul>
+                        </div>
+                </section>
+            </section>
+
+            <!-- QPA -->
+            <section name="Single Peak Methods">
+                <section>
+                    <div>
+                        <h2>XRD-Pattern von Stoffgemischen</h2>
+                        <iframe data-src="imgs/TiO_simulationen0.html" data-preload
+                            style=" height: 900px; width:1800px; "></iframe>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Intensität eines Peaks</h2><br>
+                    <h4>Was bestimmt die Intensität eines Peaks ($hkl$) der Phase $\alpha$?</h4><br>
+                    <div>
+                        $$
+                        \begin{aligned}
+                        I_{(h k l) \alpha} =
+                        & \left[\frac{I_0 \lambda^3}{32 \pi r} \frac{e^4}{m_e^2 c^4}\right]
+                        & \Bigg\} & \text{Instrument} \\
+                        \times & \left[\frac{M_{h k l}}{2 V_\alpha^2}\left|F_{(h k l) \alpha}\right|^2
+                        \left(\frac{1+\cos ^2 2 \theta \cos ^2 2 \theta_m}{\sin ^2 \theta \cos \theta}\right)
+                        \exp \left(-2 B(\sin \theta / \lambda)^2\right)\right]
+                        & \Bigg\} & \text{Kristallstruktur der Phase } \alpha \\
+                        \times & \left[\frac{W_\alpha}{\rho_\alpha \mu_m^*}\right]
+                        & \Bigg\} & \text{Probe \& Phasenanteil}
+                        \end{aligned}
+                        $$
+                    </div>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://books.google.de/books?hl=en&lr=&id=rGsoDwAAQBAJ&oi=fnd&pg=PP18&dq=Powder+Diffraction:+Theory+and+Practice.+(Royal+Society+of+Chemistry,+Cambridge,+2008&ots=hpRLnczMJO&sig=E2w7_-4I4I2VxGREXtors_Qwn3s>
+                        Dinnebier, Robert E., and Simon JL Billinge, eds. Powder diffraction: theory and practice. Royal
+                        society of chemistry, 2015.
+                    </a>
+                </section>
+                <section data-auto-animate>
+                    <h2>Intensität eines Peaks $\rightarrow$ Phasenanteil</h2><br>
+                    <div class=" multicolumn " style=" align-items: center;justify-content: space-evenly; ">
+                        <div>
+                            <p>
+                                $$
+                                I_{i \alpha}=C_{i \alpha} \frac{W_\alpha}{\mu_m^*}
+                                $$
+                            </p>
+                            <p>
+                                bzw. umgestellt nach $W_\alpha$:
+                            </p>
+                            <p style="font-size: 1.5em;">
+                                $$
+                                W_\alpha = \frac{I_{i \alpha} \mu_m^*}{C_{i \alpha}}
+                                $$
+                            </p>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>$I_{i \alpha}$: Intensität des Peaks $i$ der Phase $\alpha$</li>
+                                <li>$C_{i \alpha}$: Konstante für den Peak $i$ der Phase $\alpha$</li>
+                                <li>$W_\alpha$: Gewichtsanteil der Phase $\alpha$</li>
+                                <li>$\mu_m^*$: Absorptionskoeffizient der <span style="font-weight: bold">gesamten
+                                        Probe</span></li>
+                        </div>
+                    </div>
+                    <br>
+                    <p>
+                        Probleme hierbei sind:
+                    <ul>
+                        <li>$\mu_m^*$ unbekannt und nur schwierig zu bestimmen</li>
+                        <li>$C_{i\alpha}$ muss praktisch auch experimenhtell bestimmt werden, da insb. $I_0$ nicht
+                            wirklich konstant ist</li>
+                        <li>$\rightarrow$ zu viele unbekannte Größen</li>
+                    </ul>
+                    </p>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://books.google.de/books?hl=en&lr=&id=rGsoDwAAQBAJ&oi=fnd&pg=PP18&dq=Powder+Diffraction:+Theory+and+Practice.+(Royal+Society+of+Chemistry,+Cambridge,+2008&ots=hpRLnczMJO&sig=E2w7_-4I4I2VxGREXtors_Qwn3s>
+                        Dinnebier, Robert E., and Simon JL Billinge, eds. Powder diffraction: theory and practice. Royal
+                        society of chemistry, 2015.
+                    </a>
+                </section>
+                <section data-auto-animate>
+                    <h2>Interne Standards</h2><br>
+                    <p>Grundidee:
+                    <ul>
+                        <li>Ein bekannter Stoff wird der Probe als Referenz beigemischt</li>
+                        <li>Die Intensität eines Peaks des Standards wird gemessen</li>
+                        <li>Die Intensität eines Peaks der Probe wird gemessen</li>
+                        <li>Der Quotient der Intensitäten ist proportional zum Gewichtsanteil der Probe</li>
+                    </ul>
+                    </p><br><br>
+                    <div class=" multicolumn" style=" align-items: baseline;justify-content: space-around; ">
+                        <div>
+                            Intensität des Peaks des Standards:<br>
+                            $$
+                            I_{j s}=C_{j s} \frac{W_s}{\mu_m^*}
+                            $$
+                        </div>
+                        <div>
+                            Intensität des Peaks der Probe:<br>
+                            $$
+                            I_{j \alpha}=C_{j \alpha} \frac{W_\alpha}{\mu_m^*}
+                            $$
+                        </div>
+                        <div>
+                            Verhältnis der Intensitäten:<br>
+                            $$
+                            \frac{I_{i \alpha}}{I_{j s}}=\frac{C_{i \alpha}}{C_{j s}} \frac{W_\alpha}{W_s}
+                            $$<br>
+                        </div>
+                </section>
+                <section data-auto-animate>
+                    <h2>Interne Standards</h2><br>
+                    <p>Es kann eine Proportionalitätskonstante bestimmt werden, die spezifisch ist für jede
+                        Peakkombination, jeder Analytphase zu jedem Standard</p><br><br>
+                    <div class=" multicolumn" style=" align-items: baseline;justify-content: space-around; ">
+                        <div>
+                            Verhältnis der Intensitäten:<br>
+                            $$
+                            \frac{I_{i \alpha}}{I_{j s}}=\frac{C_{i \alpha}}{C_{j s}} \frac{W_\alpha}{W_s}
+                            $$<br>
+                        </div>
+                        <div>
+                            Bestimmung der Proportionalitätskonstante:<br>
+                            $$
+                            \frac{I_{i \alpha}}{I_{j s}} \frac{W_s}{W_\alpha}=\frac{C_{i \alpha}}{C_{j s}}=C_{j s}^{i
+                            \alpha}
+                            $$
+                        </div>
+                        <div data-id="w_alpha">
+                            Bestimmung $W_\alpha$ mit Proportionalitätskonstante:<br>
+                            $$
+                            W_\alpha=\frac{W_s}{C_{\alpha s}^{i j}} \frac{I_{i \alpha}}{I_{j s}}
+                            $$
+                        </div>
+                    </div><br>
+                    <p>Praktisch aufwendig, da für jede Phase im Gemisch eine reinphasige Probe vorliegen muss, die dann
+                        mit einem Standard gemischt und gemessen werden muss.</p>
+                </section>
+                <section data-auto-animate>
+                    <h2>RIR - Reference intensity ratios</h2><br>
+                    <p>Anstatt Proportionalitätskonstanten immer zu messen werden sie aus Referenzmessungen bezogen
+                        (Literatur und Datenbanken oder selbst gemessen)</p><br><br>
+                    <div class=" multicolumn" style=" align-items: baseline;justify-content: space-around; ">
+                        <div>
+                            RIR-Wert ersetzt $C_{j s}^{i\alpha}$:<br>
+                            $$
+                            \operatorname{RIR}_{\alpha s}=C_{j s}^{i \alpha}=\frac{I_{i \alpha}}{I_{j s}}
+                            \frac{W_s}{W_\alpha}
+                            $$<br>
+                        </div>
+                        <div data-id="w_alpha">
+                            Bestimmung $W_\alpha$ mit Proportionalitätskonstante:<br>
+                            $$
+                            W_\alpha=\frac{W_s}{C_{\alpha s}^{i j}} \frac{I_{i \alpha}}{I_{j s}}
+                            $$
+                        </div>
+                        <div>
+                            Bestimmung von $W_\alpha$ mit RIR:<br>
+                            $$
+                            W_\alpha=\frac{I_{i \alpha}}{I_{j s}} \frac{W_s}{\operatorname{RIR}_{\alpha s}}
+                            $$
+                        </div>
+                    </div><br>
+                    <p>Praktisch aufwendig, da für jede Phase im Gemisch eine reinphasige Probe vorliegen muss, die dann
+                        mit einem Standard gemischt und gemessen werden muss.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Praxistauglichkeit</h2>
+                    <iframe data-src="imgs/TiO_simulationen3.html" data-preload
+                        style=" height: 800px; width:1800px; "></iframe>
+                </section>
+                <!-- <section data-auto-animate>
+                    <h2>Praxistauglichkeit</h2>
+                    <iframe data-src="imgs/TiO_simulationen2.html" data-preload
+                        style=" height: 800px; width:1800px; "></iframe>
+                </section> -->
+                <section data-auto-animate>
+                    <h2>Praxistauglichkeit</h2>
+                    <iframe data-src="imgs/XRD_FA_Cement.html" data-preload
+                        style=" height: 800px; width:1800px; "></iframe>
+                    <a style=" font-size:24px;display:inline-block; " target="_blank"
+                        href=https://doi.org/10.5281/zenodo.1123506> Li, X., Scrivener, K., & Sellings, R. (2019). Data
+                        set for "Quantification of amorphous siliceous fly ash in hydrating blended cement pastes by
+                        X-ray powder diffraction" [Data set]. In Journal of Applied Crystallography (Final version 1).
+                        Zenodo. https://doi.org/10.5281/zenodo.1123506</a>
+                </section>
+                <section data-auto-animate>
+                    <h2>Praktische Voraussetzungen für Einzelpeak-Verfahren</h2><br><br><br><br>
+                    <div class=" multicolumn " style=" align-items: baseline;justify-content: space-between; ">
+                        <div>
+                            <h4> Generell </h4>
+                            <ul>
+                                <li>Probe muss als Pulver vorliegen</li>
+                                <li>Alle Phasen müssen bekannt sein</li>
+                                <li>Alle Phasen müssen kristallin sein</li>
+                                <li>Adäquater Standard muss verfügbar sein</li>
+                                <li>Alle Peakintensitäten müssen müssen messbar sein</li>
+                                <li>Es darf keine Vorzugsorientierung vorliegen</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Zusätzlich für Interne Standards </h4>
+                            <ul>
+                                <li>Alle Phasen müssen reinphasig vorliegen</li>
+                                <li>Für alle Phasen müssen zusätzliche Referenzmessungen gemacht werden</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Zusätzlich für RIR </h4>
+                            <ul>
+                                <li>Geeignete RIR Werte müssen verfügbar sein</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </section>
+            <section name="Rietveld & PONKCS">
+                <section>
+                    <h2>Einführung Rietveld</h2><br>
+                    <div class=" multicolumn " style=" align-items: center;justify-content: space-around; ">
+                        <div style="width: 30%;">
+                            <h4>Grundidee</h4>
+                            <p style="text-align: left;">
+                            <ul>
+                                <li>Simuliere das gesamte XRD-Pattern</li>
+                                <li>Optimiere die Strukturparameter</li>
+                                <li>Minimiere die Differenz zwischen simuliertem und gemessenem Pattern</li>
+                            </ul>
+                            </p><br>
+                            <h4>Vorteile</h4>
+                            <p style="text-align: left;">
+                            <ul>
+                                <li>Keine reinphasigen Proben nötig</li>
+                                <li>Keine Proportionalitätskonstanten/RIR-Werte nötig</li>
+                                <li>Korrekturen möglich (z.B. Vorzugsorientierungen, Probenversatz)</li>
+                                <li>Parallel Verfeinerung von weiteren Strukturparametern (z.B. Gitterkonstanten,
+                                    Gitterbesetzung, Spannungen, Temperaturfaktoren, etc.)</li>
+                            </ul>
+                            </p>
+                        </div>
+                        <div>
+                            <iframe data-src="imgs/TiO_simulationen2.html" data-preload
+                                style=" height: 800px; width:1500px; "></iframe>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- Vorstellungsrunde -->
+            <section name="">
+                <section data-auto-animate>
+                    <h2>Akademischer Werdegang</h2>
+                    <img data-src=" imgs/VL1/cv2.png " style=" max-height: 800px; "><br>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Akademischer Werdegang</h2>
+                    <img class=" img-inv " data-src=" imgs/VL1/cv.png " style=" max-height: 800px; "><br>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Analytik & Mikroskopie</h3>
+                    <img data-src=" imgs/VL1/Squiggles.png " style=" height: 800px; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Analytik & Mikroskopie</h3>
+                    <img class=" img-inv " data-src=" imgs/VL1/PFM.png " style=" height: 800px; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Analytik & Mikroskopie</h3>
+                    <img data-src=" imgs/VL1/pt_graphite.png " style=" height: 800px; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Analytik & Mikroskopie</h3>
+                    <img data-src=" imgs/VL1/nadines_cube.png " style=" height: 800px; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Simulationen</h3>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <div>
+                            <h4>Thermodynamik / Calphad</h4>
+                            <!-- <img data-src="imgs/VL1/plot_2D.png " style=" max-height:700px; "> -->
+                            <iframe data-src="imgs/VL1/plot_2D.html " data-preload
+                                style=" height: 700px; width:700px; "></iframe>
+                        </div>
+                        <div>
+                            <h4>Molecular Dynamics</h4>
+                            <img data-src=" imgs/VL1/EAH_logo_animation.gif" style=" max-height: 700px; ">
+                        </div>
+                        <div>
+                            <h4>Elektronenbeugung</h4>
+                            <div class=" multicolumn ">
+                                <div>
+                                    <img data-src=" imgs/VL1/ECPBkgCorr.png " style=" max-height: 200px; ">
+                                </div>
+                                <div>
+                                    <img data-src=" imgs/VL1/ECPSim.png" style=" max-height: 200px; ">
+                                </div>
+                            </div>
+                            <img data-src=" imgs/VL1/cbeds.png " style=" max-height: 450px; ">
+                        </div>
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Machine Learning</h3>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <div>
+                            <video onloadstart="this.playbackRate=0.5; " data-autoplay data-src=" imgs/VL1/media5.mp4 "
+                                style=" height: 600px; "></video>
+                        </div>
+                        <div>
+                            <img data-src=" imgs/VL1/arrow_right.svg " style=" height: 200px; margin-top: 180px; ">
+                        </div>
+                        <div>
+                            <video onloadstart="this.playbackRate=0.5; " data-autoplay data-src=" imgs/VL1/media6.mp4 "
+                                style=" height: 600px; ">
+                            </video>
+                        </div>
+                    </div>
+                    <p style="font-size:24px; ">Lobato, I., T. Friedrich, and S. Van Aert. "Deep convolutional
+                        neural
+                        networks to restore single-shot electron microscopy images. " arXiv preprint
+                        arXiv:2303.17025
+                        (2023).
+                    </p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <h3>Machine Learning</h3>
+                    <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                        <img data-src=" imgs/VL1/concept.png " style=" max-height: 600px; ">
+                        <div> </div>
+                        <img data-src=" imgs/VL1/superresolution.png " style=" max-height: 600px; ">
+                        <div> </div>
+                    </div>
+                    <p style="font-size:24px; ">Friedrich, Thomas, et al. "Phase Object Reconstruction for 4D-STEM
+                        using
+                        Deep Learning. " Microscopy and Microanalysis 29.1 (2023): 395-407.</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Interessen</h2>
+                    <img data-src=" imgs/VL1/profil_TF.png" style=" height: 800px; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Öffentliches</h2><br>
+                    <div class=" multicolumn " style=" align-items:center;justify-content:center; ">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <a target=”_blank” href="https://github.com/ThFriedrich"> &#8198
+                                https://github.com/ThFriedrich</a>
+                        </div>
+                    </div><br>
+                    <div class=" multicolumn " style=" align-items:center;justify-content:center; ">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                                viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                <path
+                                    d="M0 32v448h448V32H0zm262.2 334.4c-6.6 3-33.2 6-50-14.2-9.2-10.6-25.3-33.3-42.2-63.6-8.9 0-14.7 0-21.4-.6v46.4c0 23.5 6 21.2 25.8 23.9v8.1c-6.9-.3-23.1-.8-35.6-.8-13.1 0-26.1.6-33.6.8v-8.1c15.5-2.9 22-1.3 22-23.9V225c0-22.6-6.4-21-22-23.9V193c25.8 1 53.1-.6 70.9-.6 31.7 0 55.9 14.4 55.9 45.6 0 21.1-16.7 42.2-39.2 47.5 13.6 24.2 30 45.6 42.2 58.9 7.2 7.8 17.2 14.7 27.2 14.7v7.3zm22.9-135c-23.3 0-32.2-15.7-32.2-32.2V167c0-12.2 8.8-30.4 34-30.4s30.4 17.9 30.4 17.9l-10.7 7.2s-5.5-12.5-19.7-12.5c-7.9 0-19.7 7.3-19.7 19.7v26.8c0 13.4 6.6 23.3 17.9 23.3 14.1 0 21.5-10.9 21.5-26.8h-17.9v-10.7h30.4c0 20.5 4.7 49.9-34 49.9zm-116.5 44.7c-9.4 0-13.6-.3-20-.8v-69.7c6.4-.6 15-.6 22.5-.6 23.3 0 37.2 12.2 37.2 34.5 0 21.9-15 36.6-39.7 36.6z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <a target=”_blank” href="https://www.researchgate.net/profile/Thomas-Friedrich">
+                                &#8198 https://www.researchgate.net/profile/Thomas-Friedrich</a>
+                        </div>
+                    </div><br>
+                    <div>
+                        <div class=" multicolumn " style=" align-items:center;justify-content:center; ">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="2em"
+                                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                                    <path
+                                        d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54a102.5 102.5 0 0 1 -.9-13.9c85.6 20.9 158.7 9.1 178.8 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.3V197c0-58.5-64-56.6-64-6.9v114.2H90.2c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <a target=”_blank” href="https://fosstodon.org/@thfriedrich">
+                                    &#8198 https://fosstodon.org/@thfriedrich</a>
+                            </div>
+
+                        </div>
+
+
+                    </div><br>
+                    <div>
+                        <div class=" multicolumn " style=" align-items: center;">
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
+                                    <path
+                                        d="M294.75 188.19h-45.92V342h47.47c67.62 0 83.12-51.34 83.12-76.91 0-41.64-26.54-76.9-84.67-76.9zM256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm-80.79 360.76h-29.84v-207.5h29.84zm-14.92-231.14a19.57 19.57 0 1 1 19.57-19.57 19.64 19.64 0 0 1-19.57 19.57zM300 369h-81V161.26h80.6c76.73 0 110.44 54.83 110.44 103.85C410 318.39 368.38 369 300 369z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p> </p>
+                            </div>
+                            <div>
+                                <a target=”_blank” href="https://orcid.org/0000-0002-7584-2080"> &#8198
+                                    https://orcid.org/0000-0002-7584-2080</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+        </div>
+    </div>
+
+    <script src='dist/reveal.js'></script>
+    <script src='plugin/zoom/zoom.js'></script>
+    <script src='plugin/notes/notes.js'></script>
+    <script src='plugin/search/search.js'></script>
+    <script src='plugin/markdown/markdown.js'></script>
+    <script src='plugin/highlight/highlight.js'></script>
+    <script src='plugin/menu/menu.js'></script>
+    <script src='plugin/chalkboard/plugin.js'></script>
+    <script src='plugin/math/math.js'></script>
+    <script src='plugin/simplemenu/simplemenu.js'></script>
+    <script src="plugin/fsfx/fsfx.js "></script>
+    <script src="plugin/plotly/plotly.min.js "></script>
+    <script src='js/init_revealjs.js'></script>
+</body>
+
+</html>

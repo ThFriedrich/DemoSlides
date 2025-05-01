@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Research Overview</title>
+
+    <meta name="description" content="Research Overview">
+    <meta name="author" content="Thomas Friedrich">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/eah_light.css" id="theme">
+    <link rel="stylesheet" href="dist/theme/fonts/Roboto_Condensed/roboto-condensed.css">
+    <link rel="stylesheet" href="plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="plugin/menu/font-awesome/css/fontawesome.css">
+    <link rel="stylesheet" href="plugin/highlight/zenburn.css" id="highlight-theme">
+    <link rel="stylesheet" href="css/reveal-override.css">
+</head>
+
+<body>
+    <div class="reveal">
+        <!-- <div class="menubar">
+            <ul class="menu"></ul>
+        </div> -->
+        <div class="slides">
+
+            <!-- Title Slide -->
+
+            <section name="Introduction STEM and 4D-STEM" >
+                <section data-auto-animate data-background-image="imgs/airpi_cover2.png">
+                    <div style="position: relative; top: -10em; left: 0; text-align: left; max-width: 60%;">
+                        <h2>Machine Learning on Multidimensional Data in Electron Microscopy</h2>
+                        <h3>Advances and Opportunities</h3>
+                        <h4>Dr. Thomas Friedrich</h4>
+                    </div>
+                </section>
+
+
+                <section data-background-video=" imgs/4dstem.mp4">
+                    <div style=" position: absolute; right:0%; bottom: 300px; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.5); color: #fff; padding: 10px; font-size: 20px; text-align: center; vertical-align:
+                             middle; ">
+                        <h2 style=" font-size:48px; color: rgb(81, 186, 247);">4D-STEM - The general Idea</h2>
+                        <a href=https://www.youtube.com/embed/tV4hCOZm41Y>https://www.youtube.com/embed/tV4hCOZm41Y</a>
+                    </div>
+                </section>
+            </section>
+
+            <!-- RICOM -->
+            <!-- RICOM -->
+            <!-- RICOM -->
+            <section name=" riCOM ">
+                <section data-auto-animate>
+                    <h2>Real-time centre of mass imaging (riCOM)</h2>
+                    <br>
+                    <div> Chu-Ping Yu, Thomas Friedrich, Sandra Van Aert, Johan Verbeek</div>
+                    <br>
+                    <p style=" font-size:24px; ">
+                        C.-P. Yu, T. Friedrich, D. Jannis, S. Van Aert, and J. Verbeeck, “Real-Time Integration centre
+                        of Mass (riCOM) Reconstruction for 4D STEM,” Microscopy and Microanalysis, vol. 28, no. 5, pp.
+                        1526-1537, 2022.https://doi.org/10.1017/S1431927622000617
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Centre of mass</h2>
+                    <div class=" multicolumn " style=" justify-content: normal; align-items: center; ">
+                        <div style=" width: 50%; ">
+                            <img data-id=" im1 " src=" imgs/ricom/vac1.svg " style=" height: 800px; height: 600px;
+                            margin: 0 auto 0 auto; background: transparent; ">
+                        </div>
+                        <div style=" width: 50%; ">
+                            <img src=" imgs/ricom/CBED_COM.jpeg " style=" max-height: 800px; height: 600px; "><br>
+                        </div>
+                    </div>
+                    <a
+                        href=https://analyticalscience.wiley.com/do/10.1002/was.00010003>https://analyticalscience.wiley.com/do/10.1002/was.00010003</a>
+                </section>
+
+                <section>
+                    <h2>Integrated centre of mass</h2>
+                    <img src=" imgs/ricom/schematic.png " style=" max-height: 800px; height: 800px; "><br>
+                </section>
+
+                <section>
+                    <h2>Implementation</h2>
+                    <div class=" multicolumn " style=" justify-content: normal; align-items: center; ">
+                        <div style=" width: 50%; ">
+                            <ul>
+                                <li>
+                                    Algorithm is very fast and efficient
+                                </li>
+                                <li>
+                                    Can run in real time (e.g. for microscope adjustments)
+                                </li>
+                            </ul>
+                        </div>
+                        <div style=" width: 50%; ">
+                            <video data-autoplay src=" imgs/ricom/media1.mp4 " style=" height: 900px; ">
+                            </video>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Implementation</h2>
+                    <ul>
+                        <li>
+                            Implemented interfaces:
+                            <ul>
+                                <li>
+                                    Merlin (Dense/Frame based format) data and live interface
+                                </li>
+                                <li>
+                                    AdvaCam TimePix3 (Sparse/Event based format) data interface
+                                </li>
+                                <li>
+                                    ASI TimePix3 (Sparse/Event based format) data and live interface in development
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            Implemented as GUI application and CLI tool fully in C++ <br>
+                            <img src=" imgs/ricom/speed.svg " style=" max-height: 150px; height: 150px; "><br>
+                        </li>
+                        <li>
+                            Performance:
+                            <ul>
+                                <li>
+                                    Frame based format: ~30 kHz
+                                </li>
+                                <li>
+                                    Event based format: >100 kHz
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </section>
+                <section>
+                    <h2>Implementation</h2>
+                    <img src=" imgs/ricom/gui.png " style=" max-height: 850px; height: 850px; "><br>
+                </section>
+
+                <section>
+                    <h2>Summary</h2>
+                    <ul>
+                        <li class=" fragment ">
+                            Very fast algorithm with tunable contrast transfer, well suited for live-imaging
+                        </li>
+                        <li class=" fragment ">
+                            Accurate detection, localisation of atoms possible at very low doses
+                        </li>
+                        <li class=" fragment ">
+                            Resolution limited by scan step size
+                        </li>
+                        <li class=" fragment ">
+                            No reliable thickness information
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- AIRPI -->
+            <!-- AIRPI -->
+            <!-- AIRPI -->
+            <section name=" AIRPI ">
+                <section data-auto-animate>
+                    <h2>AI assisted rapid phase imaging (AIRPI)</h2>
+                    <br>
+                    <h4>A deep learning approach</h4>
+                    <br>
+                    <div> Thomas Friedrich, Chu-Ping Yu, Johan Verbeek, Sandra Van Aert</div>
+                    <br>
+                    <p style=" font-size:24px; ">
+                        Thomas Friedrich, Chu-Ping Yu, Johan Verbeeck, Sandra Van Aert, " Phase Object Reconstruction
+                        for 4D-STEM using Deep Learning ", Microscopy and Microanalysis, 2023;, ozac002,
+                        https://doi.org/10.1093/micmic/ozac002
+                    </p>
+                </section>
+
+                <!--  PHASE Object APPROXIMATION -->
+
+                <section data-auto-animate>
+                    <h3>Phase Object Approximation</h4>
+                        <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                            <div class=" fragment ">
+                                <h4>Probe $(\vec{r})$</h4>
+                                <div>
+                                    <img src=" imgs/examples/example_9649_d100000_probe1.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Amplitude</p>
+                                </div><br>
+                                <div>
+                                    <img src=" imgs/examples/example_9649_d100000_probe2.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Phase</p>
+                                </div>
+                            </div>
+                            <div class=" fragment ">
+                                <img src=" imgs/x_w.svg " style=" height: 150px; margin-top: 350px; ">
+                            </div>
+                            <div class=" r-stack ">
+                                <div>
+                                    <h4>Phase Object $(\vec{r})$</h4>
+                                    <img src=" imgs/examples/example_9649_d100000_phase_object.svg " style=" height:
+                            600px; ">
+                                    <p>Phase</p>
+                                </div>
+                                <div class=" fragment ">
+                                    <h4>Phase Object $(\vec{r})$</h4>
+                                    <img data-id=" ph_obj " src="
+                            imgs/examples/example_9649_d100000_phase_object_pts1.svg " style=" height: 600px; ">
+                                    <p>Phase</p>
+                                </div>
+                            </div>
+                            <div class=" fragment ">
+                                <img src=" imgs/eq_w.svg " style=" height: 150px; margin-top: 350px; ">
+                            </div>
+                            <div class=" fragment ">
+                                <h4>Exit Wave $(\vec{k})$</h4>
+                                <div>
+                                    <img data-id=" ex_amp " src=" imgs/examples/example_1_Amp.png " style=" height:
+                            250px; ">
+                                    <p data-id=" ex_amp_d " style=" font-size: 24px; ">Amplitude</p>
+                                </div><br>
+                                <div>
+                                    <img src=" imgs/examples/example_1_phase.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Phase</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>$$\psi_{in}*\psi_{po} = \psi_{out}$$</p>
+                </section>
+
+                <section data-auto-animate>
+                    <h3>Phase Object Approximation</h4>
+                        <div class=" multicolumn " style=" align-items: normal; justify-content: space-evenly; ">
+
+                            <div>
+                                <h4>Phase Object $(\vec{r})$</h4>
+                                <img data-id=" ph_obj " src="
+                            imgs/examples/example_9649_d100000_phase_object_pts1.svg " style=" height: 600px; ">
+                                <p>Phase</p>
+                            </div>
+
+                            <div>
+                                <img src=" imgs/eq_w.svg " style=" height: 150px; margin-top: 350px; ">
+                            </div>
+
+                            <div>
+                                <h4>Exit Wave $(\vec{k})$</h4>
+                                <div>
+                                    <img data-id=" ex_amp " src=" imgs/examples/example_1_Amp.png " style=" height:
+                            250px; ">
+                                    <p data-id=" ex_amp_d " style=" font-size: 24px; ">Amplitude</p>
+                                </div><br>
+                                <div>
+                                    <img src=" imgs/examples/example_1_phase.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Phase</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <img src=" imgs/div_w.svg " style=" height: 150px; margin-top: 350px; ">
+                            </div>
+
+                            <div>
+                                <h4>Probe $(\vec{r})$</h4>
+                                <div>
+                                    <img src=" imgs/examples/example_9649_d100000_probe1.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Amplitude</p>
+                                </div><br>
+                                <div>
+                                    <img src=" imgs/examples/example_9649_d100000_probe2.png " style=" height: 250px; ">
+                                    <p style=" font-size: 24px; ">Phase</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>$$\psi_{po}(\vec{r}) = \psi_{out}(\vec{r})/\psi_{in}(\vec{r})$$</div>
+                </section>
+
+                <section data-auto-animate>
+                    <div class=" multicolumn " style=" align-items: normal; justify-content: space-evenly; ">
+                        <div>
+                            <img data-id=" ph_obj " src=" imgs/examples/example_9649_d100000_in_c.png " style="
+                            height: 450px; ">
+                            <p data-id=" ex_amp_d ">Dose = 1e5</p>
+                        </div>
+                        <div>
+                            <img src=" imgs/arch/arrow_right.svg " style=" height: 200px; margin-top: 150px; ">
+                        </div>
+
+                        <div>
+                            <img src=" imgs/arch/blackbox.svg " style=" height: 450px; ">
+                        </div>
+
+                        <div>
+                            <img src=" imgs/arch/arrow_right.svg " style=" height: 200px; margin-top: 150px; ">
+                        </div>
+                        <div>
+                            <img data-id=" ex_amp " src=" imgs/examples/example_1_phase.png " style=" height: 450px; ">
+                            <p data-id=" ex_amp_d ">Phase</p>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section data-auto-animate>
+                    <h2> Concept </h2>
+                    <img class=" img-inv " src=" imgs/concept.svg " style=" height: auto; margin: 0 auto 0 auto;
+                            background: transparent; ">
+                </section>
+
+                <section data-auto-animate>
+                    <h2> Concept </h2>
+                    <div class=" multicolumn " style=" justify-content:space-evenly; ">
+                        <div style=" width: 70%; ">
+                            <img class=" img-inv " src=" imgs/concept.svg "
+                                style=" height: auto; margin: 0 auto 0 auto; background: transparent; ">
+                        </div>
+                        <div style=" width: 35%; ">
+                            <ol>
+                                <li>Electron wave $\psi_{in}$ interacts with the object $\psi_{obj}$</li>
+                                <li>Recording of exit wave intensities
+                                    $\left|\psi_{out}(\vec{k})\right|^2$
+                                </li>
+                                <li>Extraction of a 3x3 Kernel of adjecent CBEDs</li>
+                                <li>Exit wave reconstruction using Neural Network</li>
+                                <li>Complex wave function $\psi_{out}(\vec{r})$
+                                </li>
+                                <li>Phase object approximation yields patch of object</li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2> Implementation - Example Inputs & Outputs</h2>
+                    <img src=" imgs/in_out_panel.svg " , style=" height: 700px; ">
+                </section>
+
+                <!-- <section data-auto-animate>
+                    <h2> Implementation - Object construction (Stitching)</h2>
+                    <div>
+                        <p>Complex summation of $n$ phase patches</p><br> $$\psi_{patch}(\vec{r}) = \psi_{out}(\vec{r})/\psi_{in}(\vec{r})$$
+                        <br> $$\psi_{obj}(\vec{r}) = \sum_{n}{\psi_{patch, n}(\vec{r})}$$
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h2> Implementation - Object construction (Stitching)</h2>
+                    <div>
+                        <p>Aligning the patches</p><br> $$\phi_{shift}(\Delta x, \Delta y) = exp\left[2 \pi i \left(\frac{\Delta x}{N_x} + \frac{\Delta y}{N_y}\right)\right]$$ <br> $$ \begin{aligned} \psi_{in,n}(\vec{r}) &= \mathcal{F}^{-1} [ \psi_{in}(\vec{k}) \times \phi_{shift,n}]
+                        \\ \psi_{out,n}(\vec{r}) &= \mathcal{F}^{-1} [ \psi_{out}(\vec{k}) \times \phi_{shift,n}]\end{aligned} $$
+                    </div>
+                </section>
+
+                <section data-auto-animate>
+                    <h2> Implementation - Object construction (Stitching)</h2>
+                    <div>
+                        <p>Weighting the patches</p><br> $$\psi_{patch,n}(\vec{r}) = \frac{\psi_{out,n}(\vec{r})/\psi_{in,n}(\vec{r})}{|\psi_{out,n}(\vec{r})/\psi_{in,n}(\vec{r})|}\times\omega_n(\vec{r}) $$ <br><br> $$\begin{aligned} \omega(\vec{r}) = \left\{
+                        \begin{array}{ccl} \frac{\small{|\psi_{in,n}(\vec{r})|^2}}{\small{\sum_{\vec{r}}{|\psi_{in,n}(\vec{r})|^2}}} & if & |\psi_{in,n}(\vec{r})|^2>\frac{1}{10} max(|\psi_{in,n}(\vec{r})|^2) \\ 0 & if & otherwise \end{array}\right. \end{aligned}$$
+                    </div>
+                </section> -->
+
+                <!-- <section data-auto-animate>
+                    <h2> Implementation - Object construction (Stitching)</h2>
+                    <div style=" height: 900px; ">
+                        <div class=" multicolumn " style=" justify-content: left; align-items: baseline; ">
+                            <div data-id=" col1 " style=" width: 50%; ">
+                                <p>Complex summation of $n$ phase patches</p><br> $$\psi_{obj}(\vec{r}) = \sum_{n}{\psi_{patch, n}(\vec{r})}$$
+                            </div>
+                            <div style=" width: 50%; ">
+                                <p>Alignment</p><br> $$ \begin{aligned} \phi_{shift}(\Delta x, \Delta y) = exp\left[2 \pi i \left(\frac{\Delta x}{N_x} + \frac{\Delta y}{N_y}\right)\right] \end{aligned}$$
+                                <br> $$ \begin{aligned} \psi_{in,n}(\vec{r}) &= \mathcal{F}^{-1} [ \psi_{in}(\vec{k}) \times \phi_{shift,n}] \\ \psi_{out,n}(\vec{r}) &= \mathcal{F}^{-1} [ \psi_{out}(\vec{k}) \times \phi_{shift,n}]\end{aligned} $$
+                            </div>
+                        </div> <br>
+                        <div class=" multicolumn " style=" justify-content: left; align-items: baseline; ">
+                            <div style=" width: 100%; ">
+                                <p>Weighting</p><br> $$\psi_{patch,n}(\vec{r}) = \frac{\psi_{out,n}(\vec{r})/\psi_{in,n}(\vec{r})}{|\psi_{out,n}(\vec{r})/\psi_{in,n}(\vec{r})|}\times\omega_n(\vec{r}) $$
+                            </div>
+                        </div>
+                    </div>
+                </section> -->
+
+                <section>
+                    <h2> Results - Super Resolution</h2>
+                    <div>
+                        <img data-id=" im1 " class=" img-inv " src=" imgs/superresolution.svg "
+                            style=" max-height: 750px; margin: 0 auto 0 auto; background: transparent; ">
+                    </div>
+                </section>
+
+
+
+
+                <section>
+                    <h2> Results - Contrast Analysis </h2>
+                    <div class=" multicolumn " style=" justify-content: normal; align-items: center; ">
+                        <div style=" width: 60%; ">
+                            <img data-id=" im1 " class=" img-inv " src=" imgs/gold.svg "
+                                style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+                        </div>
+                        <div style=" width: 60%; ">
+                            <img data-id=" im1 " class=" img-inv " src=" imgs/gold2.svg "
+                                style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- <section>
+                    <h2> Availability </h2>
+                    <ul>
+                        <li>Trained Neural Network and Reconstruction implementations:</li>
+                        <a href=" https://github.com/ThFriedrich/airpi ">https://github.com/ThFriedrich/airpi</a>
+                        <li>Training Datsets:</li>
+                        <a href=" https://doi.org/10.5281/zenodo.6971200 ">https://doi.org/10.5281/zenodo.6971200</a>
+                        <li>Data generation code:</li>
+                        <a href=" https://github.com/ThFriedrich/ap_data_generation ">https://github.com/ThFriedrich/ap_data_generation</a>
+                        <li>Example Datsets:</li>
+                        <a href=" https://doi.org/10.5281/zenodo.7034879 ">https://doi.org/10.5281/zenodo.7034879</a>
+                        <li>Preprint:</li>
+                        <a href=" https://arxiv.org/abs/2202.12611 ">https://arxiv.org/abs/2202.12611</a>
+                    </ul>
+                </section> -->
+            </section>
+
+            <!-- Restoration -->
+            <!-- Restoration -->
+            <!-- Restoration -->
+            <section name="STEM Restoration">
+                <section data-auto-animate>
+                    <h2>STEM Image Restoration using CNNs and impact on structure quantifications</h2>
+                    <p>Ivan Lobato, Thomas Friedrich, Sandra Van Aert</p>
+                    <img src=" imgs/restoration/distortions.svg " style="height: 500px; "><br>
+                    <p style="font-size:24px; ">
+                        Lobato, I., T. Friedrich, and S. Van Aert. "Deep convolutional neural networks to restore single-shot electron microscopy images." npj Computational Materials 10.1 (2024): 10.
+                    </p>
+                </section>
+
+                <section data-auto-animate>
+                    <h2>Distortion modelling - Jitter</h2>
+                    <img " src=" imgs/restoration/xy_jitter.svg " style=" height: 600px; "><br>
+                </section>
+               
+
+                <section data-auto-animate>
+                    <h2>STEM Image Restoration using CNN</h2>
+                    <div class=" r-stack ">
+                        <div class=" fragment fade-out data-fragment-index=" 0 ">
+                    <img data-id=" da " src=" imgs/restoration/workflow_a2.svg " style=" height: 650px; ">
+        </div>
+        <div class=" fragment fade-in " data-fragment-index=" 0 ">
+            <img data-id=" db " src=" imgs/restoration/workflow_b2.svg " style=" height: 650px; ">
+        </div>
+        <div class=" fragment fade-in " data-fragment-index=" 1 ">
+            <img data-id=" dc " src=" imgs/restoration/workflow_c2.svg " style=" height: 650px; ">
+        </div>
+    </div>
+    </section>
+
+    <section data-auto-animate>
+        <h2>Restoration examples</h2><br>
+        <div class=" multicolumn ">
+            <div>
+                <video onloadstart=" this.playbackRate=0.3; " data-autoplay src="
+                            imgs/restoration/media5.mp4 " style=" height: 600px; "></video>
+            </div>
+            <div>
+                <img src=" imgs/arch/arrow_right.svg " style=" height: 200px; margin-top: 50px; "></video>
+            </div>
+            <div>
+                <video onloadstart=" this.playbackRate=0.3; " data-autoplay src="
+                            imgs/restoration/media6.mp4 " style=" height: 600px; ">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>What's next?</h2>
+        <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+            <div>
+                <img src="imgs/Au_NP_STEM_2.png" style=" height: 700px;">
+            </div>
+            <div>
+                <img src="imgs/Au_NP_STEM_2_res.png" style=" height: 700px;">
+            </div>
+            <div>
+    </section>
+    <!-- <section>
+        <h2>What's next?</h2>
+        <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+            <div>
+                <img src="imgs/Au_NP_STEM.png" style=" height: 700px;">
+            </div>
+            <div>
+                <img src="imgs/Au_NP_STEM_res.png" style=" height: 700px;">
+            </div>
+            <div>
+    </section> -->
+    <section>
+        <h2>What's next?</h2>
+
+        <div>
+            <img src="imgs/4dto3d.svg" style=" height: 700px;">
+        </div>
+
+    </section>
+
+    <section>
+        <h2> Acknowledgements </h2>
+        <br>
+        <ul>
+            <li> European Research Council (ERC) (Grant Agreement No. 770887 PICOMETRICS, No. 802123 HDEM
+                and No. 823717 ESTEEM3)</li>
+            <li> The University of Antwerp through a TOP BOF project</li>
+            <li> The Flemish Government (direct electron detector through the Hercules fund)</li>
+            <li> FWO and FNRS within the 2Dto3D project of the EOS program (grant number 30489208)</li>
+        </ul>
+        <!-- </p> -->
+        <div class=" multicolumn " style=" justify-content:center; justify-items: center; ">
+            <div>
+                <img class=" img-inv " src=" imgs/erc2.png "
+                    style=" height: 250px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/logo-picometrics.png "
+                    style=" height: 150px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/Esteem3-Logo.png "
+                    style=" height: 250px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/Universiteit_Antwerpen_logo.svg "
+                    style=" height:250px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+        </div>
+    </section>
+    </section>
+
+    <section name=" Q-Slides">
+        <!-- RICOM -->
+        <section>
+            <h2>Integrated centre of mass</h2>
+            <img src=" imgs/ricom/ricom_full.png " style=" max-height: 800px; height: 800px; "><br>
+        </section>
+
+        <section>
+            <h2>Implementation</h2>
+            <div class=" multicolumn " style=" justify-content: normal; align-items: center; ">
+                <div style=" width: 50%; ">
+                    <ul>
+                        <li>
+                            Frequency transfer is highly flexible
+                            <ul>
+                                <li>
+                                    by adjusting the kernel size
+                                </li>
+                                <li>
+                                    including bandpass filtering into the kernel with variable
+                                    limits
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div style=" width: 50%; ">
+                    <img src=" imgs/ricom/freq_rev.svg " style=" max-height: 800px; height: 800px; "><br>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Results</h2>
+            <img src=" imgs/ricom/ricom_zeolite.png " style=" max-height: 800px; height: 800px; "><br>
+        </section>
+        <!-- AIRPI -->
+        <section data-auto-animate>
+            <h2> Implementation - Training Data</h2><br>
+            <div class=" multicolumn " style=" justify-content: normal; align-items: baseline; ">
+                <div style=" width: 33%; ">
+                    <h5>Atomic Structures</h5>
+                    <img class=" img-inv " src=" imgs/SbAu.svg "
+                        style=" height: 400px; margin: 0 auto 0 auto; background: transparent; ">
+                    <ul style=" margin-right: 40px; margin-left: 40px; ">
+                        <li>Generated from crystallographic data files from
+                            <a href=" https://materialsproject.org/ ">the Materials project
+                                (materialsproject.org)</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class=" fragment " style=" width: 33%; ">
+                    <h5>Electrostatic potential</h5>
+                    <img class=" img-inv " src=" imgs/SbAu_pot.png "
+                        style=" height: 400px; margin: 0 auto 0 auto; background: transparent; ">
+                    <ul style=" margin-right: 40px; margin-left: 40px; ">
+                        <li>Calculation of projectecd electrostatic potential using electron
+                            scattering factor
+                            parameterizations
+                        </li>
+                    </ul>
+                </div>
+                <div class=" fragment " style=" width: 33%; ">
+                    <h5>Multislice Simulations</h5>
+                    <img class=" img-inv " src=" imgs/example_3x3.png "
+                        style=" height: 400px; margin: 0 auto 0 auto; background: transparent; ">
+                    <ul style=" margin-right: 40px; margin-left: 40px; ">
+                        <li>Simulation of a of a 3x3 kernel of exit waves</li>
+                        <li>Wide range of microscope settings</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section data-auto-animate>
+            <h2> Implementation - Training Data</h2><br>
+            <div class=" multicolumn " style=" justify-content:space-evenly; ">
+                <div style=" width: 45%; ">
+                    <table style='font-size:55%;'>
+                        <tr>
+                            <td>Description</td>
+                            <td>Value</td>
+                        </tr>
+                        <tr>
+                            <td>Acceleration voltage</td>
+                            <td>$\in$ {30, 40, 50, 60, 80, 100, 120, 140, 160, 180, 200, 300} kV
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Step size $(\vec{r})$</td>
+                            <td>0.0167...0.33 &#8491;</td>
+                        </tr>
+                        <tr>
+                            <td>Convergence angle</td>
+                            <td>5...30~mrad </td>
+                        </tr>
+                        <tr>
+                            <td>Spherical aberration</td>
+                            <td>0.001 mm</td>
+                        </tr>
+                        <tr>
+                            <td>Defocus</td>
+                            <td>Scherzer defocus</td>
+                        </tr>
+                        <tr>
+                            <td># Frozen phonons</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Atom rmsd</td>
+                            <td>0.08 &#8491;</td>
+                        </tr>
+                        <tr>
+                            <td>Orientation</td>
+                            <td>$\in$ {[1 1 0], [0 1 1], [1 0 1], [0 0 1],$ $ [1 0 0], [0 1 0], [1 1
+                                1]}</td>
+                        </tr>
+                        <tr>
+                            <td>Thickness</td>
+                            <td>&lt;30 &#8491;</td>
+                        </tr>
+                        <tr>
+                            <td>Dose</td>
+                            <td>3...3e9 $\textrm{e}^-$/cbed </td>
+                        </tr>
+                        <tr>
+                            <td># Structures</td>
+                            <td>126,335</td>
+                        </tr>
+                        <tr>
+                            <td># Samples</td>
+                            <td>742,688 </td>
+                        </tr>
+                    </table>
+                </div>
+                <div style=" width: 70%; ">
+                    <img class=" img-inv " src=" imgs/feat_lab.svg "
+                        style=" height: auto; margin: 0 auto 0 auto; background: transparent; ">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2> Implementation - Training Data</h2>
+            <img src=" imgs/distributions.svg " , style=" height: 900px; ">
+        </section>
+
+        <section>
+            <h2> Implementation - Architecture</h2>
+            <img src=" imgs/arch.svg " , style=" height: 700px; ">
+            <br>
+            <a style=" font-size: 24px; " href=https://doi.org/10.1007/978-3-319-24574-4_28>Ronneberger O.,
+                Fischer P., Brox T. (2015) U-Net: Convolutional Networks for Biomedical Image
+                Segmentation. In:
+                Navab N., Hornegger J., Wells W., Frangi A. (eds) Medical Image Computing and
+                Computer-Assisted
+                Intervention – MICCAI 2015.</a>
+        </section>
+
+        <section>
+            <h2> Implementation - Training</h2>
+            <h4>Preprocessing</h4>
+            <ul>
+                <li>CBEDs taken to the power of 0.1</li>
+                <li>each CBED is scaled by its distance to central probe position $\Delta s$:</li>
+            </ul>
+            $$\zeta_{xy} = \frac{1}{\Delta s * 50} \quad \quad \zeta_d = \frac{1}{\sqrt{2 * \Delta
+            s^2} * 50}$$
+            <br><br>
+            <h4>Augmentation</h4>
+            <ul>
+                <li>Poisson noise applied (different dose and configuration each epoch)</li>
+                <li>Random sample removal (3%) </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2> Implementation - Training</h2>
+            <h4>Loss function</h4>
+            $$ \begin{aligned} \mathcal{L} & = \\ &
+            \mathcal{L}_2(|\psi(\vec{k})|^2)+(\mathcal{L}_2(\sin\phi(\vec{k}))+\mathcal{L}_2(\cos\phi(\vec{k})))*3
+            \\ + &
+            \mathcal{L}_2(|\psi(\vec{r})|^2)+\mathcal{L}_2(\sin\phi(\vec{r}))+\mathcal{L}_2(\cos\phi(\vec{r}))
+            \\
+            + & \mathcal{L}_2(\phi_{obj}(\vec{r})) + \mathcal{L}_{xc}(\phi_{obj}(\vec{r}))
+            \end{aligned} $$
+            with: $$ \mathcal{L}_2(x)=\left(x_{true}-x_{predicted}\right)^2 $$ $$
+            \mathcal{L}_{xc}(x)=\textrm{normalized cross correlation between
+            } x_{true} \textrm{ and } x_{predicted} $$
+        </section>
+
+        <section>
+            <h2> Results - Contrast Analysis </h2>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/avrg_pot.svg "
+                    style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+        </section>
+
+        <section>
+            <h2> Results - Noise Robustness</h2>
+            <div class=" multicolumn " style=" justify-content: normal; align-items: center; ">
+                <div style=" width: 50%; ">
+
+                    <img data-id=" im1 " class=" img-inv " src=" imgs/mos2_dose.svg "
+                        style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+                </div>
+                <div style=" width: 50%; ">
+
+                    <img data-id=" im1 " class=" img-inv " src=" imgs/mos2_dose_fft.svg "
+                        style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2> Results - Step size dependencies </h2>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/stepsize.svg "
+                    style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+        </section>
+
+        <section>
+            <h2> Results - Step size dependencies </h2>
+            <div>
+                <img data-id=" im1 " class=" img-inv " src=" imgs/zeolite.svg "
+                    style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+        </section>
+
+        <section>
+            <h2>Summary</h2>
+            <div class=" multicolumn " style=" justify-content: space-evenly; align-items: baseline; ">
+                <div style=" width: 45%; ">
+                    <h3>Strong points</h3>
+                    <ul>
+                        <li class=" fragment ">
+                            Only 3x3 CBEDs per probe position enables live reconstruction & no
+                            memory constraint
+                            on dataset size
+                        </li>
+                        <li class=" fragment ">
+                            Super resolution can be achieved
+                        </li>
+                        <li class=" fragment ">
+                            Good noise robustness
+                        </li>
+                        <li class=" fragment ">
+                            Contrast formation aligns rather well with human intuition
+                        </li>
+                    </ul>
+                </div>
+                <div style=" width: 45%; ">
+                    <h3>Limitations</h3>
+                    <ul>
+                        <li class=" fragment ">
+                            Range of microscope parameters limited -> not general to all cases
+                        </li>
+                        <li class=" fragment ">
+                            Scan strategy needs some consideration, Dose rate can be limiting
+                        </li>
+                        <li class=" fragment ">
+                            Speed could ideally still be better
+                        </li>
+                        <li class=" fragment ">
+                            Idea won't benefit from event driven data formats (in this
+                            implementation at least)
+                        </li>
+                    </ul>
+                </div>
+        </section>
+
+        <section>
+            <h2>Conclusions 4D-STEM methods</h2>
+            <div>
+                <img src=" imgs/PbBrFA_profiles.svg "
+                    style=" height: 800px; margin: 0 auto 0 auto; background: transparent; ">
+            </div>
+        </section>
+
+        <!-- Distortions -->
+        <section data-auto-animate>
+            <h2>Distortion modelling - Noise</h2>
+            <img " src=" imgs/restoration/pmt.svg " style=" height: 600px; "><br>
+        </section>
+
+        <section data-auto-animate>
+                    <h2>Distortion modelling - Noise</h2>
+                    <img " src=" imgs/restoration/noise_peaks.svg " style="height: 600px; "><br>
+        </section>
+
+        <section data-auto-animate>
+            <h2>Distortion modelling - Fast-Scanning</h2>
+            <img " src=" imgs/restoration/fs.svg " style=" height: 600px; "><br>
+        </section>
+
+            <section data-auto-animate>
+                <h2>Impact on atomic structure quantifications</h2>
+                <div class=" multicolumn " style=" align-items: normal;justify-content: space-evenly; ">
+                    <div style=" width: 20%; ">
+                        <ul>
+                            <li>Pt-slab 1-75 unit cells thick</li>
+                            <li>Simulated data</li>
+                            <li>Poisson noise only</li>
+                        </ul>
+                    </div>
+        
+                    <div>
+                        <img src=" imgs/restoration/Pt_slab_panel_b.svg " style=" max-height: 800px; "><br>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Summary</h2>
+                <ul>
+                    <li class=" fragment ">
+                        Accurate models for many distortions were developed
+                    </li>
+                    <li class=" fragment ">
+                        A CNN was trained to correct all distortions in a single shot STEM image
+                    </li>
+                    <li class=" fragment ">
+                        Extensive simulation and quatification studies were part of the development process and model
+                        evaluations
+                    </li>
+                    <li class=" fragment ">
+                        Structure quantifications show significant improvements for precision and accuracy of atom positions and
+                        SCS
+                    </li>
+                    <li class=" fragment ">
+                        We could confirm that also in tricky scenarios the model preserves the original structure
+                    </li>
+                </ul>
+            </section>
+
+            <section data-auto-animate>
+                <h2>Impact on atomic structure quantifications</h2>
+                <h5>Pt-slab with edge dislocation</h5>
+                <img src=" imgs/restoration/edge_dis.svg " style=" height: 800px; "><br>
+            </section>
+        
+        </section>
+
+        </div>
+    </div>
+
+    <script src='dist/reveal.js'></script>
+    <script src='plugin/zoom/zoom.js'></script>
+    <script src='plugin/notes/notes.js'></script>
+    <script src='plugin/search/search.js'></script>
+    <script src='plugin/markdown/markdown.js'></script>
+    <script src='plugin/highlight/highlight.js'></script>
+    <script src='plugin/menu/menu.js'></script>
+    <script src='plugin/chalkboard/plugin.js'></script>
+    <script src='plugin/math/math.js'></script>
+    <script src='plugin/simplemenu/simplemenu.js'></script>
+    <script src=" plugin/fsfx/fsfx.js "></script>
+    <script src=" plugin/plotly/plotly.min.js "></script>
+    <script src='js/init_revealjs.js'></script>
+
+</body>
+
+</html>
