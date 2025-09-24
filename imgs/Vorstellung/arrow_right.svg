@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="124.7618mm"
+   height="102.17731mm"
+   viewBox="0 0 124.7618 102.17731"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="arrow_right.svg"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient11382"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#00cfe8;stop-opacity:1;"
+         offset="0"
+         id="stop11380" />
+    </linearGradient>
+    <symbol
+       id="RightArrow_Inv">
+      <title
+         id="title2186">Right Arrow</title>
+      <rect
+         x="0.13229166"
+         y="0.13229166"
+         width="18.785418"
+         height="18.785418"
+         ry="1.5875"
+         style="stroke:#ffffff;stroke-width:0.26458332"
+         id="rect2188" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 16.66875,9.525 -5.820833,5.820833 H 6.8791667 L 11.1125,11.1125 H 2.6458333 V 7.9375 H 11.1125 L 6.8791667,3.7041667 h 3.9687503 z"
+         style="fill:#ffffff;stroke:none;stroke-width:0.26458332"
+         id="path2190" />
+    </symbol>
+    <symbol
+       id="Information_Inv">
+      <title
+         id="title1474">Information</title>
+      <rect
+         x="0.13229166"
+         y="0.13229166"
+         width="18.785418"
+         height="18.785418"
+         ry="1.5875"
+         style="stroke:#ffffff;stroke-width:0.26458332"
+         id="rect1476" />
+      <circle
+         cx="9.5249996"
+         cy="9.5249996"
+         r="6.3499999"
+         style="fill:none;stroke:#ffffff;stroke-width:1.58749998"
+         id="circle1478" />
+      <path
+         inkscape:connector-curvature="0"
+         d="M 7.14375,8.4666667 C 7.14375,7.14375 7.4083333,5.55625 9.525,5.55625 c 1.058333,0 2.116667,0.79375 2.116667,1.8520833 0,1.0583334 -0.529167,1.5875 -1.058334,1.8520834 C 10.054167,9.525 9.525,9.7895833 9.525,10.583333 c 0,0.79375 0,1.5875 0,1.5875"
+         style="fill:none;stroke:#ffffff;stroke-width:1.58749998"
+         id="path1480" />
+      <rect
+         x="8.7312498"
+         y="12.7"
+         width="1.5875"
+         height="1.5875"
+         style="fill:#ffffff;stroke:none;stroke-width:0.26458332"
+         id="rect1482" />
+    </symbol>
+    <symbol
+       id="RightArrow">
+      <title
+         id="title2181">Right Arrow</title>
+      <path
+         inkscape:connector-curvature="0"
+         d="m 16.66875,9.525 -5.820833,5.820833 H 6.8791667 L 11.1125,11.1125 H 2.6458333 V 7.9375 H 11.1125 L 6.8791667,3.7041667 h 3.9687503 z"
+         style="stroke:none;stroke-width:0.26458332"
+         id="path2183" />
+    </symbol>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="129.7561"
+     inkscape:cy="250.20583"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1034"
+     inkscape:window-x="1920"
+     inkscape:window-y="22"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-123.01101,-103.13922)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Waree;-inkscape-font-specification:Waree;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="107.97688"
+       y="91.737"
+       id="text819"><tspan
+         sodipodi:role="line"
+         id="tspan817"
+         x="107.97688"
+         y="101.52451"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Bahnschrift;-inkscape-font-specification:Bahnschrift;stroke-width:0.26458332" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:warnschrift;-inkscape-font-specification:warnschrift;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="82.586288"
+       y="98.151466"
+       id="text823"><tspan
+         sodipodi:role="line"
+         id="tspan821"
+         x="82.586288"
+         y="107.51524"
+         style="stroke-width:0.26458332" /></text>
+    <path
+       style="opacity:0.95;fill:#16b0c3;fill-opacity:0.95294118;fill-rule:nonzero;stroke:#ffffff;stroke-width:1.97269487;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0;paint-order:markers stroke fill"
+       d="m 179.94929,186.46094 c 9.90794,-9.82809 18.01445,-18.17847 18.01445,-18.55641 0,-0.37795 -16.64246,-0.68716 -36.98318,-0.68716 h -36.9832 v -13.4534 -13.4534 h 37.20827 37.20824 l -18.23953,-18.0925 -18.23949,-18.0925 h 16.96288 16.96291 l 25.46294,24.74552 25.46292,24.74555 -25.57534,25.35677 -25.57537,25.35677 h -16.85047 -16.85047 z"
+       id="path12830-9"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>
