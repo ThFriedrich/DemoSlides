@@ -9,58 +9,70 @@ The main use case in mind when implementing the plugin is classroom usage in whi
 
 The plugin records all drawings made so that they can be play backed using the `autoSlide` feature or the `audio-slideshow` plugin.
 
-[Check out the live demo](https://rajgoel.github.io/reveal.js-demos/chalkboard-demo.html)
 
-The chalkboard effect is based on [Chalkboard](https://github.com/mmoustafa/Chalkboard) by Mohamed Moustafa.
+[Check out the demo](https://rajgoel.github.io/reveal.js-demos/?topic=chalkboard)
 
-Multi color support added by Kurt Rinnert [GitHub](https://github.com/rinnert).
+## Setup
 
-## Installation
-
-Copy the file `plugin.js` and the  `img` directory into the plugin folder of your reveal.js presentation, i.e. `plugin/chalkboard` and load the plugin as shown below.
-
+To use the plugin include
 ```html
-<link rel="stylesheet" href="plugin/chalkboard/style.css">
-<script src="plugin/chalkboard/plugin.js"></script>
+<!-- Font awesome is required for the chalkboard plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<!-- Custom controls plugin is used to for opening and closing annotation modes. -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/customcontrols/style.css">
+<!-- Chalkboard plugin -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/plugin.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins@latest/chalkboard/style.css">
+```
+to the header of your presentation and configure reveal.js and the plugin by
 
-<script>
-    Reveal.initialize({
-        // ...
-        plugins: [ RevealChalkboard ],
-        // ...
-    });
-</script>
+```js
+Reveal.initialize({
+  customcontrols: {
+    controls: [
+      { icon: '<i class="fa fa-pen-square"></i>',
+        title: 'Toggle chalkboard (B)',
+        action: 'RevealChalkboard.toggleChalkboard();'
+      },
+      { icon: '<i class="fa fa-pen"></i>',
+        title: 'Toggle notes canvas (C)',
+        action: 'RevealChalkboard.toggleNotesCanvas();'
+      }
+    ]
+  },
+  chalkboard: {
+    // add configuration here
+  },
+  // ...
+  plugins: [ RevealChalkboard, RevealCustomControls ],
+  // ...
+});
 ```
 
 In order to include buttons for opening and closing the notes canvas or the chalkboard you should make sure that `font-awesome` is available. The easiest way is to include
-```html
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css">
 ```
-to the `head` section of you HTML-file.
-
-Alternatively, if you're using this package via NPM, you can use the built-in font-awesome distribution like so:
-```html
-<link rel="stylesheet" href="node_modules/reveal.js-plugins/menu/font-awesome/css/all.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js-plugins/menu/font-awesome/css/fontawesome.css">
 ```
+to the ```head``` section of you HTML-file.
 
 ## Usage
 
-### Enable & disable
-
-With above configuration the notes canvas is opened and closed when pressing 'c' and the chalkboard is opened and closed when pressing 'b'.
-
-### Mouse
+### Mouse or touch
+- Click on the pen symbols at the bottom left to toggle the notes canvas or chalkboard
+- Click on the color picker at the left to change the color (the color picker is only visible if the notes canvas or chalkboard is active)
+- Click on the up/down arrows on the left to the switch among multiple chalkboardd (the up/down arrows are only available for the chlakboard)
 - Click the left mouse button and drag to write on notes canvas or chalkboard
 - Click the right mouse button and drag to wipe away previous drawings
-
-### Touch
 - Touch and move to write on notes canvas or chalkboard
-- Touch and hold for half a second, then move to wipe away previous drawings
 
 ### Keyboard
-- Press the 'DEL' key to clear the chalkboard
-- Press the 'd' key to download chalkboard drawings
-- Press the 'BACKSPACE' key to delete all chalkboard drawings on the current slide
+- Press the 'BACKSPACE' key to delete all chalkboard drawings
+- Press the 'DEL' key to clear the notes canvas or chalkboard
+- Press the 'c' key to toggle the notes canvas
+- Press the 'b' key to toggle the chalkboard
+- Press the 'd' key to download drawings
 - Press the 'x' key to cycle colors forward
 - Press the 'y' key to cycle colors backward
 
@@ -68,10 +80,9 @@ With above configuration the notes canvas is opened and closed when pressing 'c'
 
 If the `autoSlide` feature is set or if the `audio-slideshow` plugin is used, pre-recorded chalkboard drawings can be played. The slideshow plays back the user interaction with the chalkboard in the same way as it was conducted when recording the data.
 
-## Broadcasting
+## Multiplexing
 
-The plugin supports broadcasting of drawings via the [`seminar`](https://github.com/rajgoel/reveal.js-plugins/tree/master/seminar) plugin. Alternatively, the [`multiplex`](https://github.com/reveal/multiplex) plugin can be used to share drawings (in this case, the `messageType` parameter (see Configuration) must be set to `'send'`).
-
+The plugin supports multiplexing via the [`multiplex` plugin](https://github.com/reveal/multiplex) or the [`seminar` plugin](https://github.com/rajgoel/reveal.js-plugins/tree/master/seminar).
 
 ## PDF-Export
 
@@ -82,27 +93,23 @@ If the slideshow is opened in [print mode](https://revealjs.com/pdf-export/), th
 
 The plugin has several configuration options:
 
-- `boardmarkerWidth`: an integer, the drawing width of the boardmarker; larger values draw thicker lines.
-- `chalkWidth`: an integer, the drawing width of the chalk; larger values draw thicker lines.
-- `chalkEffect`: a float in the range `[0.0, 1.0]`, the intesity of the chalk effect on the chalk board. Full effect (default) `1.0`, no effect `0.0`.
-- `storage`: Optional variable name for session storage of drawings.
-- `src`: Optional filename for pre-recorded drawings.
-- `readOnly`: Configuation option allowing to prevent changes to existing drawings. If set to `true`, no changes can be made. However, recorded drawings for a slide or fragment can be cleared by pressing the 'DEL' key (i.e. by using the `RevealChalkboard.clear()` function).
-- `toggleNotesButton`: If set to `true`, a button for opening and closing the notes canvas is shown. Alternatively, the css position attributes can be provided if the default position is not appropriate.
-- `toggleChalkboardButton`: If set to `true`, a button for opening and closing the chalkboard is shown. Alternatively, the css position attributes can be provided if the default position is not appropriate.
-- `colorButtons`: If set to `true`, the notes canvas and chalkboard will show a palette with buttons allowing to change the color. Alternatively, a numeric value can be assigned to the parameter limiting the number of colors buttons shown.
-- `boardHandle`: If set to `true`, navigation buttons are shown, allowing to use multiple chalkboards on the same slide. 
-- `transition`: Gives the duration (in milliseconds) of the transition for a slide change, so that the notes canvas is drawn after the transition is completed.
-- `theme`: Can be set to either `"chalkboard"` or `"whiteboard"`.
+- ```boardmarkerWidth```: an integer, the drawing width of the boardmarker; larger values draw thicker lines.
+- ```chalkWidth```: an integer, the drawing width of the chalk; larger values draw thicker lines.
+- ```chalkEffect```: a float in the range ```[0.0, 1.0]```, the intesity of the chalk effect on the chalk board. Full effect (default) ```1.0```, no effect ```0.0```.
+- ```storage```: Optional variable name for session storage of drawings.
+- ```src```: Optional filename for pre-recorded drawings.
+- ```readOnly```: Configuation option allowing to prevent changes to existing drawings. If set to ```true``` no changes can be made, if set to ```false``` changes can be made, if unset or set to ```undefined``` no changes to the drawings can be made after returning to a slide or fragment for which drawings had been recorded before. In any case the recorded drawings for a slide or fragment can be cleared by pressing the 'DEL' key (i.e. by using the ```RevealChalkboard.clear()``` function).
+- ```transition```: Gives the duration (in milliseconds) of the transition for a slide change, so that the notes canvas is drawn after the transition is completed.
+- ```theme```: Can be set to either ```"chalkboard"``` or ```"whiteboard"```.
 
 The following configuration options allow to change the appearance of the notes canvas and the chalkboard. All of these options require two values, the first gives the value for the notes canvas, the second for the chalkboard.
 
-- `background`: The first value expects a (semi-)transparent color which is used to provide visual feedback that the notes canvas is enabled, the second value expects a filename to a background image for the chalkboard.
-- `grid`: By default whiteboard and chalkboard themes include a grid pattern on the background. This pattern can be modified by setting the color, the distance between lines, and the line width, e.g. `{ color: 'rgb(127,127,255,0.1)', distance: 40, width: 2}`. Alternatively, the grid can be removed by setting the value to `false`.
-- `eraser`: An image path and radius for the eraser.
-- `boardmarkers`: A list of boardmarkers with given color and cursor.
-- `chalks`: A list of chalks with given color and cursor.
-- `rememberColor`: Whether to remember the last selected color for the slide canvas or the board.
+- ```background```: The first value expects a (semi-)transparent color which is used to provide visual feedback that the notes canvas is enabled, the second value expects a filename to a background image for the chalkboard.
+- ```grid```: By default whiteboard and chalkboard themes include a grid pattern on the background. This pattern can be modified by setting the color, the distance between lines, and the line width, e.g. ```{ color: 'rgb(127,127,255,0.1)', distance: 40, width: 2}```. Alternatively, the grid can be removed by setting the value to ```false```.
+- ```eraser```: An image path and radius for the eraser.
+- ```boardmarkers```: A list of boardmarkers with given color and cursor.
+- ```chalks```: A list of chalks with given color and cursor.
+- ```rememberColor```: Whether to remember the last selected color for the slide canvas or the board.
 
 All of the configurations are optional and the default values shown below are used if the options are not provided.
 
@@ -115,12 +122,7 @@ Reveal.initialize({
         chalkEffect: 1.0,
         storage: null,
         src: null,
-        readOnly: false,
-        messageType: 'broadcast',
-        toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
-        toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
-        colorButtons: true,
-        boardHandle: true,
+        readOnly: undefined,
         transition: 800,
         theme: "chalkboard",
         background: [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ],
@@ -150,8 +152,12 @@ Reveal.initialize({
 });
 ```
 
+## Credits
+
+The chalkboard effect is based on [Chalkboard](https://github.com/mmoustafa/Chalkboard) by Mohamed Moustafa.
+
 ## License
 
 MIT licensed
 
-Copyright (C) 2021 Asvin Goel
+Copyright (C) 2023 Asvin Goel
